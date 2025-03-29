@@ -1,0 +1,9 @@
+.allheaderconatainer{
+    width: 100%;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 8px 1px rgb(134, 134, 134);
+    position: fixed;
+}

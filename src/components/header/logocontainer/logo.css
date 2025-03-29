@@ -1,0 +1,18 @@
+.logos{
+    
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.logoconatainer{
+   
+    width: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,35 @@
+.searchconatainer{
+    border: 2px solid gold;
+    width: 30%;
+     display: flex;
+     justify-content: space-evenly;
+     align-items: center;
+     background-color: #eae9e9;
+     border: none;
+      border-radius: 5px;
+      box-shadow: 0px 0px 0px 1px rgb(237, 233, 233);
+}
+     .searchconatainer>input{
+    padding: 10px;
+    width: 95%;
+    border: none;
+    outline: none;
+    background-color: rgb(238, 237, 237);
+    text-transform: capitalize;
+    border-radius: 5px;
+   
+}
+.searchconatainer>span
+{
+  
+    height: 100%;
+    padding-right: 4px;
+    padding-left: 5px;
+    position: relative;
+    top: 2.4px;
+}
+
+.searchconatainer:hover,.searchconatainer>input:hover{
+   
+  background-color: white;
+}

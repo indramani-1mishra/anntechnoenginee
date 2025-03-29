@@ -1,0 +1,64 @@
+.allloginconatainer {
+    width: 220px; /* पहले 17% था, इसे fixed px में किया */
+    position: absolute;
+    top: 55px;  /* थोड़ा और नीचे लाने के लिए */
+    right: 5%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
+    display: none; /* Default में hidden रहेगा */
+    z-index: 100;
+}
+
+/* जब .profile-container पर hover करेंगे तो .allloginconatainer दिखेगा */
+.profile-container:hover .allloginconatainer {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.loginbox {
+    padding: 10px;
+    text-align: left; /* justify की जगह left बेहतर लगेगा */
+    border-bottom: 1px solid silver;
+}
+
+.loginbox > p > a {
+    text-decoration: none;
+    color: rgb(56, 56, 56);
+    font-size: 14px;
+}
+
+.loginbox > span > button {
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    text-transform: capitalize;
+    color: rgb(218, 26, 26);
+    font-weight: bold;
+}
+
+.loginbox > span {
+    padding: 5px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 5px;
+    border: 1px solid gray;
+    display: inline-block;
+    transition: all 0.2s ease-in-out;
+}
+
+.loginbox > span:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.05);
+}
+
+.loginbox > p:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease-in-out;
+}

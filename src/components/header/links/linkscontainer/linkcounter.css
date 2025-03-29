@@ -1,0 +1,22 @@
+.uls{
+
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+   padding: 20px;
+  
+  
+  }
+  .list
+  {
+      list-style-type: none;
+     text-transform: uppercase;
+     cursor: pointer;
+    
+    
+  }
+  .ass{
+    width: 45%;
+   
+  }
