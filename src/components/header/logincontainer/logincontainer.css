@@ -1,17 +1,17 @@
 .allloginconatainer {
-    width: 220px; /* पहले 17% था, इसे fixed px में किया */
+    width: 220px;
     position: absolute;
-    top: 55px;  /* थोड़ा और नीचे लाने के लिए */
+    top: 55px;  
     right: 5%;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     background: white;
     border-radius: 5px;
     padding: 10px;
-    display: none; /* Default में hidden रहेगा */
+    display: none; 
     z-index: 100;
 }
 
-/* जब .profile-container पर hover करेंगे तो .allloginconatainer दिखेगा */
+
 .profile-container:hover .allloginconatainer {
     display: block;
     animation: fadeIn 0.3s ease-in-out;
@@ -24,7 +24,7 @@
 
 .loginbox {
     padding: 10px;
-    text-align: left; /* justify की जगह left बेहतर लगेगा */
+    text-align: left;
     border-bottom: 1px solid silver;
 }
 

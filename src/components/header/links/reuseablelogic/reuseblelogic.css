@@ -1,62 +1,64 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  .allcontainer {
-    position: absolute;
-    top: 100%;
-    left: 10%;
-    display: flex;
-    width: 70%;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    background-color: white; /* Ensure no overlap */
-   
-    
-  }
-  
-  .container {
-    
-    display: flex;
-    flex-direction: column;
-  
-    align-items: start;
-    padding: 5px;
-   
-    width: 20%;
-    box-shadow: 0px 0px 0px 0.5px rgb(227, 223, 223);
-    background-color: white; /* Prevent unwanted background */
-  }
-  
-  .container > h4 {
-    color: #f16565;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 14px;
-  }
-  
-  .container .ulcs {
-    padding-left: 0;
-  }
-  
-  .container .ulcs .liste {
-    list-style-type: none;
-    padding: 2px;
-    text-transform: capitalize;
-  }
-  
-  .container .ulcs .liste a {
-    text-decoration: none;
-    color: black;
-    opacity: 0.7;
-    font-size: 16px;
-    display: block;
-  }
-  
-  .container .ulcs .liste:hover  {
-    transform: scale(1.04);
-    color: black;
-  }
-  
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.allcontainer {
+  position: absolute;
+  top: 50px; /* Parent से थोड़ा नीचे */
+  left: 10%;
+  display: flex;
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px; /* हल्का गोल लुक */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* हल्का shadow */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px;
+  min-width: 180px; /* Responsive width */
+  max-width: 220px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.container > h4 {
+  color: #f16565;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.container .ulcs {
+  padding-left: 0;
+}
+
+.container .ulcs .liste {
+  list-style-type: none;
+  padding: 5px;
+  text-transform: capitalize;
+}
+
+.container .ulcs .liste a {
+  text-decoration: none;
+  color: black;
+  opacity: 0.8;
+  font-size: 16px;
+  display: block;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.container .ulcs .liste:hover a {
+  transform: scale(1.04);
+  color: #f16565;
+  opacity: 1;
+}
