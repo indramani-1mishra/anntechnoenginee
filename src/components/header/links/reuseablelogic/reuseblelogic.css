@@ -2,62 +2,71 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  z-index: 1000;
+  /* Global z-index mat do, har element ke liye specific rakho */
 }
 
+/* Dropdown container */
 .allcontainer {
   position: absolute;
-  top: 50px; /* Parent से थोड़ा नीचे */
-  left: 10%;
+  top: 100%; /* Below the navbar */
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  width: 70%;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  width: 90%;
+  max-width: 1200px;
   background-color: white;
   padding: 10px;
-  border-radius: 5px; /* हल्का गोल लुक */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* हल्का shadow */
+  border-radius: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+  z-index: 2001;
 }
 
-.container {
+
+/* Each column */
+.container3 {
   display: flex;
   flex-direction: column;
   align-items: start;
   padding: 10px;
-  min-width: 180px; /* Responsive width */
+  min-width: 180px;
   max-width: 220px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: white;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 5px;
 }
 
-.container > h4 {
+/* Headings */
+.container3 > h4 {
   color: #f16565;
   text-transform: uppercase;
   font-weight: bold;
   font-size: 14px;
 }
 
-.container .ulcs {
+/* List styles */
+.container3 .ulcs {
   padding-left: 0;
 }
 
-.container .ulcs .liste {
+.container3 .ulcs .liste {
   list-style-type: none;
   padding: 5px;
   text-transform: capitalize;
 }
 
-.container .ulcs .liste a {
+.container3 .ulcs .liste a {
   text-decoration: none;
   color: black;
   opacity: 0.8;
   font-size: 16px;
   display: block;
-  transition: all 0.3s ease; /* Smooth hover effect */
+  transition: all 0.3s ease;
 }
 
-.container .ulcs .liste:hover a {
+.container3 .ulcs .liste:hover a {
   transform: scale(1.04);
   color: #f16565;
   opacity: 1;

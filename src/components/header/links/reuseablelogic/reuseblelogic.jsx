@@ -9,7 +9,7 @@ function   Reuseblelogic({menuData}) {
     <div className='allcontainer'>
        {menuData.map((section)=>
         {
-            return <div key={section.category} className='container'>
+            return <div key={section.category} className='container3'>
                 <h4>{section.category}</h4>
                 <ul className='ulcs'>
                     {section.items.map((item,index)=>

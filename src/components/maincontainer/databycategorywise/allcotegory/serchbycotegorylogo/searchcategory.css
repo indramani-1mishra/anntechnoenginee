@@ -1,0 +1,14 @@
+.allcategorycontainer{
+   
+    position: relative;
+    top:80px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   flex-direction: column;
+   box-sizing: border-box;
+   overflow-x: hidden;
+
+}

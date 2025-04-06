@@ -2,10 +2,13 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Carousel के लिए स्टाइल्स इम्पोर्ट करें
-import c1 from "../assets/c1.jpg";
-import c2 from "../assets/c2.webp";
-import c3 from "../assets/c3.jpg";
-import c4 from "../assets/c4.webp";
+import c1 from "../assets/image1.webp";
+import c2 from "../assets/image2.webp";
+import c3 from "../assets/image3.webp";
+import c4 from "../assets/image4.webp";
+import c5 from "../assets/image5.webp";
+
+
 
 const DemoCarousel = () => {
     const onChange = (index) => {
@@ -21,7 +24,7 @@ const DemoCarousel = () => {
     };
 
     return (
-       <div style={{"position":"relative","top":"80px" ,"z-index": "1" } }>
+       <div style={{"position":"relative","top":"80px" ,} }>
         <Carousel showArrows={true} onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb} infiniteLoop={true} autoPlay={true} showThumbs={false}>
     <div>
         <img src={c1} alt="Slide 1" />
@@ -39,6 +42,11 @@ const DemoCarousel = () => {
         <img src={c4} alt="Slide 4" />
         <p className="legend">Legend 4</p>
     </div>
+    <div>
+        <img src={c5} alt="Slide 4" />
+        <p className="legend">Legend 4</p>
+    </div>
+    
     
 </Carousel>
 

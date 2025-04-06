@@ -1,0 +1,16 @@
+.categoryimageconatiner{
+
+   
+    position: relative;
+    top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+.categoryitems1{
+    
+    margin: 5px;
+    padding: 10px;
+}
