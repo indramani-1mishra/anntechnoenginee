@@ -12,7 +12,7 @@ import c5 from "../assets/image5.webp";
 
 const DemoCarousel = () => {
     const onChange = (index) => {
-        console.log("Slide changed to:", index);
+       // console.log("Slide changed to:", index);
     };
 
     const onClickItem = (index) => {

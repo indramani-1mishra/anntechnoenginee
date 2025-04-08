@@ -1,15 +1,20 @@
 import React from 'react'
 import './reuseblecomponents.css'
+import { useNavigate } from 'react-router-dom'
 export default function Reuseablecompont({data}) {
 
-    console.log(data+"in");
+    const navigate = useNavigate();
+    const onclickhandler= (id)=>
+    {
+        navigate(`/productdetails/${id}`);
+    }
   return (
  
      <div className='container'>
     {data.length > 0 ? (
         data.map((item) => (
             <div key={item._id} className='itemcontainer'>
-                <div className='details'>
+                <div className='details' onClick={()=>onclickhandler(item._id)}>
                 <p>
                         {item.description.length > 50 
                             ? item.description.slice(0, 50) + "..." 
@@ -24,7 +29,7 @@ export default function Reuseablecompont({data}) {
                     <p>Price: ₹{item.price}</p>
                   
                 </div>
-                <div className='photo'>
+                <div className='photo' >
                     <img src={item.image} alt={item.productname} width="200" />
                 </div>
             </div>

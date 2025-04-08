@@ -11,11 +11,15 @@ import Toys from '../toys/toys'
 import Eyewear from '../Eyewear/Eyewear'
 import All from '../all/all'
 import Allcategory from '../allcotegory/allcategory'
+import Productdetails from '../../productdetails/productdetails'
+import Databysearch from '../../databysearch/databysearch'
+import Contextwrapper from '../../../../context/contextwrapper'
 
 export default function Routers() {
   return (
     <div>
-      <Routes>
+    
+    <Routes>
         <Route  path='/bags' element={<Bags/>}/>
         <Route  path='/electronics' element={<Electranic/>}/>
         <Route  path='/men' element={<Men/>}/>
@@ -27,7 +31,11 @@ export default function Routers() {
         <Route  path='/Eyewear' element={<Eyewear/>}/>
         <Route  path='/all' element={<All/>}/>
         <Route path='/' element={<Allcategory/>}/>
+        <Route  path='/productdetails/:id' element={<Productdetails/>} />
+        <Route  path='/search' element={<Databysearch/>}/>
       </Routes>
+   
+
     </div>
   )
 }

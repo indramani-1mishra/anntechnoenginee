@@ -10,7 +10,7 @@ export default function Categoryitems() {
     <div className='categoryimageconatiner'>
     {categories.map((item)=>
     {
-      return <div  key={item.index} className='categoryitems1'>
+      return <div  key={item.path} className='categoryitems1'>
        <Link to={item.path}> <img  src={item.image}  alt={item.name} /></Link>
       </div>  
     })}
