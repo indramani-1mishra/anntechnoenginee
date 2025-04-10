@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { menuItems1, menuItems2 } from './helpercode1'
 import { Link, useNavigate } from 'react-router-dom'
 import './logincontainer.css'
+import SearchContext from '../../../context/context';
 export default function Logincontainer() {
 const navigate= useNavigate();
-
+ const {name}=useContext(SearchContext);
   const onclickhandler=()=>
   {
     navigate('/signup');
@@ -18,6 +19,7 @@ const navigate= useNavigate();
     <div className='allloginconatainer'>
       <div className='loginbox'>
         <h4>welcome </h4>
+        <p className='p2 p21'>mr.{name}</p>
         <p className='p2'>To access account and manage orders</p>
          <span><button onClick={onclickhandler1}>login</button>/<button onClick={onclickhandler}>sign up</button></span>
       </div>

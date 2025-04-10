@@ -1,5 +1,5 @@
 import {  Link } from "react-router-dom";
-import './Footer.css';
+import './footer.css';
 
 import { FaCcVisa } from "react-icons/fa"; 
 import { FaCcDiscover } from "react-icons/fa";
