@@ -14,6 +14,9 @@ import Allcategory from '../allcotegory/allcategory'
 import Productdetails from '../../productdetails/productdetails'
 import Databysearch from '../../databysearch/databysearch'
 import Contextwrapper from '../../../../context/contextwrapper'
+import Signup from '../../../auth/signup/signup'
+import Login from '../../../auth/login/login'
+import Userdetail from '../../../auth/userdetails/userdetail'
 
 export default function Routers() {
   return (
@@ -33,6 +36,9 @@ export default function Routers() {
         <Route path='/' element={<Allcategory/>}/>
         <Route  path='/productdetails/:id' element={<Productdetails/>} />
         <Route  path='/search' element={<Databysearch/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path='/userdetails'element={<Userdetail/>}/>
       </Routes>
    
 

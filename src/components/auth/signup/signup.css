@@ -1,0 +1,151 @@
+/* signup.css */
+
+.form1 {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    top: 30px;
+  }
+  
+  .inputfield {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .inputfield label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  .inputfield input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: border-color 0.3s;
+  }
+  
+  .inputfield input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .pasword {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .btn1 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    color: #007bff;
+    
+    height: 10px;
+    width: 20px;
+  }
+  
+  .submitb {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .submitb button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitb button:hover {
+    background-color: #0056b3;
+  }
+  
+  .pk {
+    text-align: center;
+    margin-top: 15px;
+    color: green;
+    font-weight: 500;
+  }
+  .password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .eye-toggle .btn1 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    padding: 0;
+  }
+  
+
+  .password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    
+  }
+  
+  .btn1 {
+    background: none;
+    border: none;
+    cursor: pointer;
+    
+    color: #007bff;
+    padding: 2px;
+    width: 30px;       /* Ensures full clickable area */
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .password-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* Space for the eye icon */
+    box-sizing: border-box;
+  }
+  
+  .btn1 {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+    font-size: 20px;
+    padding: 5px;
+  }
+  
