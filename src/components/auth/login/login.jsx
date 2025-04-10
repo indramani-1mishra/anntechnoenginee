@@ -18,7 +18,9 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setMessage('');
+   
+
+    console.log("✅ Login button clicked"); // Test log
 
     if (!email && !phonenumber) {
       setMessage("Please enter either email or phone number.");
@@ -26,18 +28,18 @@ export default function Login() {
     }
 
     try {
-      const res = await axios.post('https://mytrabackendclone-3.onrender.com/api/v1/login', {
-        email,
-        phonenumber,
-        password,
-      });
+      const res = await axios.post(
+        'https://mytrabackendclone-3.onrender.com/api/v1/login',
+        { email, phonenumber, password },
+        { withCredentials: true } // ✅ important for cookie to work
+      );
 
-      console.log(res);
+      console.log("✅ Login Response:", res);
 
       setMessage('Login successful! Redirecting...');
       setTimeout(() => navigate('/'), 1000);
     } catch (err) {
-      console.error(err);
+      console.error("❌ Login failed:", err);
       setMessage(
         err.response?.data?.message || 'Invalid credentials. Please try again.'
       );

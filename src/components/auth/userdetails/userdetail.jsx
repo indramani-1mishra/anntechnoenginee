@@ -8,7 +8,7 @@ export default function Userdetail() {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("https://mytrabackendclone-3.onrender.com/api/v1/users", {
+        const response = await axios.get("https://mytrabackendclone-3.onrender.com/api/v1/cart", {
           withCredentials: true // agar cookies/token ka issue ho raha hai to ye zaroori hai
         });
 

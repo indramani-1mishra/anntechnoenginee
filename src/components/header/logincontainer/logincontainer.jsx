@@ -23,12 +23,12 @@ const navigate= useNavigate();
       </div>
       <div className='loginbox'>
       {menuItems1.map((item)=>{return(
-        <p key={item.index}><Link to={item.link}>{item.name}</Link></p>
+        <p key={item.name}><Link to={item.link}>{item.name}</Link></p>
       )})}
       </div>
       <div className='loginbox'>
       {menuItems2.map((item)=>{return(
-        <p key={item.index}><Link to={item.link}>{item.name}</Link></p>
+        <p key={item.name}><Link to={item.link}>{item.name}</Link></p>
       )})}
       </div>
     </div>
