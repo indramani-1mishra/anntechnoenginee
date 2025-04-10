@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import './productdetails.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Usefetchapi from '../../customhooks/Usefetchapi';
 import Reuseablecompont from '../../reauseblecomponet/reuseablecompont';
+import axios from 'axios';
 
 export default function Productdetails() {
   const { id } = useParams();
-
+   
+  const onclickhandler = async () => {
+    try {
+      const response = await axios.post(
+        `https://mytrabackendclone-3.onrender.com/api/v1/cart/${id}`,
+        {},
+        { withCredentials: true }
+      );
+  
+      console.log("Item added to cart:", response.data);
+    } catch (error) {
+      console.error("Error in add to cart:", error.response?.data || error.message);
+    }
+  };
+  
   // Fetch individual product
   const { response: productResponse } = Usefetchapi(`https://mytrabackendclone-3.onrender.com/api/v1/products/${id}`);
   const product = productResponse?.data;
@@ -54,7 +69,7 @@ export default function Productdetails() {
           <p><strong>Quantity:</strong> {product.quantity}</p>
           <p><strong>Rating:</strong> {product.rating}⭐</p>
           <button className="buy-now-btn">Buy Now</button>
-          <button className="buy-now-btn">Add to Cart</button>
+          <button className="buy-now-btn" onClick={onclickhandler}>Add to Cart</button>
         </div>
       </div>
 

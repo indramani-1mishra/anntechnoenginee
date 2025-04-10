@@ -17,6 +17,8 @@ import Contextwrapper from '../../../../context/contextwrapper'
 import Signup from '../../../auth/signup/signup'
 import Login from '../../../auth/login/login'
 import Userdetail from '../../../auth/userdetails/userdetail'
+import Addtocart from '../../carts/addtocarts/carts'
+import Carts from '../../carts/addtocarts/carts'
 
 export default function Routers() {
   return (
@@ -39,6 +41,7 @@ export default function Routers() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path='/userdetails'element={<Userdetail/>}/>
+        <Route path='/carts'element={<Carts/>}/>
       </Routes>
    
 
