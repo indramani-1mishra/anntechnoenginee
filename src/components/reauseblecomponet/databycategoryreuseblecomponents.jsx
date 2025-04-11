@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Usefetchapi from '../customhooks/Usefetchapi';
-import Reuseablecompont from './reuseablecompont';
+import Reuseablecompont from './Reuseablecompont';
 
 export default function Databycategory({category}) {
   const [product, setProduct] = useState([]);
