@@ -1,26 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './productdetails.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Usefetchapi from '../../customhooks/Usefetchapi';
 import Reuseablecompont from '../../reauseblecomponet/reuseablecompont';
 import axios from 'axios';
+import SearchContext from '../../../context/context';
 
 export default function Productdetails() {
   const { id } = useParams();
-   
+   const {count,setcount,isloggedin}= useContext(SearchContext);
+   const navigate = useNavigate();
   const onclickhandler = async () => {
+    
     try {
-      const response = await axios.post(
-        `https://mytrabackendclone-3.onrender.com/api/v1/cart/${id}`,
-        {},
-        { withCredentials: true }
-      );
-  
-      console.log("Item added to cart:", response.data);
+      if (isloggedin) {
+        const response = await axios.post(
+          `https://mytrabackendclone-3.onrender.com/api/v1/cart/${id}`,
+          {},
+          { withCredentials: true }
+        );
+        alert('product added');
+        setcount(count + 1);
+      } else {
+        alert("please login to add to cart");
+        navigate('/login');
+        
+      }
     } catch (error) {
       console.error("Error in add to cart:", error.response?.data || error.message);
     }
-  };
+  }
   
   // Fetch individual product
   const { response: productResponse } = Usefetchapi(`https://mytrabackendclone-3.onrender.com/api/v1/products/${id}`);

@@ -2,35 +2,46 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './Addtocart.css';
 import SearchContext from '../../../../context/context';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Carts() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const {setcount}=useContext(SearchContext);
-
-  useEffect(() => {
-    const fetchCartItems = async () => {
-      try {
-        const res = await axios.get('https://mytrabackendclone-3.onrender.com/api/v1/cart', {
-          withCredentials: true,
-        });
-
-
-        const items = res.data?.data?.items || [];
-        setCartItems(items);
-        setcount(items.length);
-        
-      } catch (error) {
-        console.error(' Error fetching cart items:', error);
-        setCartItems([]);
-      } finally {
-        setLoading(false);
+     const {isloggedin}= useContext(SearchContext);
+     const navigate = useNavigate();
+     useEffect(() => {
+      const fetchCartItems = async () => {
+        try {
+          const res = await axios.get('https://mytrabackendclone-3.onrender.com/api/v1/cart', {
+            withCredentials: true,
+          });
+    
+          const items = res.data?.data?.items || [];
+          setCartItems(items);
+          setcount(items.length);
+         
+        } catch (error) {
+          console.error('Error fetching cart items:', error);
+          setCartItems([]);
+        } finally {
+          setLoading(false);
+        }
+      };
+    
+      if (isloggedin) {
+        fetchCartItems();
+       
+      } else {
+        alert('Please login to see  cart');
+        navigate('/login');
+        setLoading(false); 
       }
-    };
-
-    fetchCartItems();
-  }, []);
-
+    }, [isloggedin, setcount]);
+    
+  
+   
   const handleBuyNow = (item) => {
     alert(`Buying: ${item.product.productname} (₹${item.product.price})`);
     // Example: navigate(`/checkout/${item._id}`);

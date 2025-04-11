@@ -1,6 +1,6 @@
 const menuItems1 = [
     { name: "Orders", link: "/orders" },
-    { name: "Wishlist", link: "/wishlist" },
+    { name: "Wishlist", link: "/carts" },
     { name: "account", link: "/userdetails" },
     { name: "Contact Us", link: "/contact" },
     { name: "Myntra Insider", link: "/insider", badge: "New" },

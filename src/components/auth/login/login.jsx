@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
+import SearchContext from '../../../context/context';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(true);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
+  const {setisloggedin}=useContext(SearchContext);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -20,7 +22,7 @@ export default function Login() {
     e.preventDefault();
    
 
-    console.log("✅ Login button clicked"); // Test log
+   
 
     if (!email && !phonenumber) {
       setMessage("Please enter either email or phone number.");
@@ -34,8 +36,8 @@ export default function Login() {
         { withCredentials: true } // ✅ important for cookie to work
       );
 
-      console.log("✅ Login Response:", res);
-
+   
+       setisloggedin(true);
       setMessage('Login successful! Redirecting...');
       setTimeout(() => navigate('/'), 1000);
     } catch (err) {

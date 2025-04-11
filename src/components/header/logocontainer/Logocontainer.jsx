@@ -9,35 +9,47 @@ import SearchContext from '../../../context/context';
 
 export default function Logocontainer() {
   const [showLogin, setShowLogin] = useState(false);
-    const navigate = useNavigate();
-     const {count} =useContext(SearchContext);
-    const onclickhandler=()=>
-    {
-      navigate('/carts');
-    }
+  const navigate = useNavigate();
+  const { count } = useContext(SearchContext);
+
+  const onclickhandler = () => {
+    navigate('/carts');
+  };
+
   return (
     <div className='logoconatainer'>
-      <div 
+      
+      {/* Profile + Login dropdown */}
+      <div
         className='logos profile-container'
+        tabIndex="0"
+        aria-haspopup="true"
+        aria-expanded={showLogin}
         onMouseEnter={() => setShowLogin(true)}
         onMouseLeave={() => setShowLogin(false)}
       >
         <span><FaRegUser style={{ fontSize: "20px" }} /></span>
         <span>Profile</span>
-        {showLogin && <Logincontainer />}
+        {showLogin && (
+          <div className="login-popup">
+            <Logincontainer />
+          </div>
+        )}
       </div>
 
+      {/* Wishlist */}
       <div className='logos'>
         <span><CiHeart style={{ fontSize: "20px" }} /></span>
         <span>Wishlist</span>
       </div>
 
+      {/* Cart/Bag */}
       <div className='logos' onClick={onclickhandler}>
         <span className='count'>{count}</span>
         <span><MdOutlineShoppingBag style={{ fontSize: "20px" }} /></span>
         <span>Bag</span>
-
       </div>
+      
     </div>
   );
 }

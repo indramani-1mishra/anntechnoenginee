@@ -13,8 +13,8 @@ export default function Reuseablecompont({data}) {
      <div className='container'>
     {data.length > 0 ? (
         data.map((item) => (
-            <div key={item._id} className='itemcontainer'>
-                <div className='details' onClick={()=>onclickhandler(item._id)}>
+            <div key={item._id} className='itemcontainer' onClick={()=>onclickhandler(item._id)}>
+                <div className='details' >
                 <p>
                         {item.description.length > 50 
                             ? item.description.slice(0, 50) + "..." 
