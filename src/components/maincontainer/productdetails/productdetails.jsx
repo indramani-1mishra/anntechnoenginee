@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './productdetails.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Usefetchapi from '../../customhooks/Usefetchapi';
-import Reuseablecompont from '../../reauseblecomponet/reuseablecompont';
+import Reuseablecompont from '../../reauseblecomponet/Reuseablecompont';
 import axios from 'axios';
 import SearchContext from '../../../context/context';
 
