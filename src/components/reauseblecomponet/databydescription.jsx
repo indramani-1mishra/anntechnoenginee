@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Usefetchapi from '../customhooks/Usefetchapi';
-import Reuseablecompont from './reuseablecompont';
+import Reuseablecompont from './Reuseablecompont';
 
 export default function Databydescription({ description }) {
   const [data, setData] = useState([]);
