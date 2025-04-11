@@ -1,0 +1,37 @@
+.loder{
+    height: 50px;
+    width: 50px;
+   border: 8px dotted white;
+    border-radius: 50px;
+
+    animation: loder1 1s linear infinite;
+}
+.loderconatainer{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100px;
+   flex-direction: column;
+}
+
+@keyframes loder1{
+
+    0%{
+        transform: rotate(0deg);
+        border-top: 8px solid red;
+    }
+    25%{
+        transform: rotate(100deg);
+        border-right: 8px solid rgb(0, 255, 64);
+    }
+    75%{
+        transform: rotate(180deg);
+        border-bottom: 8px solid #F59E0B
+    }
+    100%{
+        transform: rotate(360deg);
+        border-left: 8px solid rgb#EF4444;
+    }
+
+}

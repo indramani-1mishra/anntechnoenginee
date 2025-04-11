@@ -1,6 +1,7 @@
 import React from 'react'
 import './reuseblecomponents.css'
 import { useNavigate } from 'react-router-dom'
+import Loder from './loder/Loder';
 export default function Reuseablecompont({data}) {
 
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ export default function Reuseablecompont({data}) {
             </div>
         ))
     ) : (
-        <p>Loading products...</p>
+        <Loder/>
     )}
 </div>
   
