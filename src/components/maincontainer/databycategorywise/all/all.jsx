@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Usefetchapi from '../../../customhooks/Usefetchapi';
-import Reuseablecompont from '../../../reauseblecomponet/reuseablecompont';
+import Reuseablecompont from '../../../reauseblecomponet/Reuseablecompont';
+
 
 export default function All() {
   const [product, setProduct] = useState([]);
