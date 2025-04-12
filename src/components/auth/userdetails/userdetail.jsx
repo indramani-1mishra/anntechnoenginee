@@ -3,8 +3,9 @@ import axios from 'axios';
 import './userdetails.css';
 import { Link } from 'react-router-dom';
 import SearchContext from '../../../context/context';
+import withLogin from '../../hoc/withloggin/Withloggin';
 
-export default function Userdetail() {
+ function Userdetail() {
   const [message, setMessage] = useState('');
   const [userdata, setuserdata] = useState({});
    const {setname}= useContext(SearchContext);
@@ -69,3 +70,5 @@ export default function Userdetail() {
     </div>
   );
 }
+
+export default withLogin(Userdetail);

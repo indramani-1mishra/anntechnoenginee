@@ -1,54 +1,43 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './Addtocart.css';
+import withLogin from '../../../hoc/withloggin/Withloggin';
 import SearchContext from '../../../../context/context';
-import { useNavigate } from 'react-router-dom';
 
-
-export default function Carts() {
+function Carts() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {setcount}=useContext(SearchContext);
-     const {isloggedin}= useContext(SearchContext);
-     const navigate = useNavigate();
-     useEffect(() => {
-      const fetchCartItems = async () => {
-        try {
-          const res = await axios.get('https://mytrabackendclone-3.onrender.com/api/v1/cart', {
-            withCredentials: true,
-          });
-    
-          const items = res.data?.data?.items || [];
-          setCartItems(items);
-          setcount(items.length);
-         
-        } catch (error) {
-          console.error('Error fetching cart items:', error);
-          setCartItems([]);
-        } finally {
-          setLoading(false);
-        }
-      };
-    
-      if (isloggedin) {
-        fetchCartItems();
-       
-      } else {
-        alert('Please login to see  cart');
-        navigate('/login');
-        setLoading(false); 
+  const { setcount } = useContext(SearchContext);
+
+  useEffect(() => {
+    const fetchCartItems = async () => {
+      try {
+        const res = await axios.get(
+          'https://mytrabackendclone-3.onrender.com/api/v1/cart',
+          { withCredentials: true }
+        );
+
+        const items = res.data?.data?.items || [];
+        setCartItems(items);
+        setcount(items.length);
+      } catch (error) {
+        console.error('Error fetching cart items:', error);
+        setCartItems([]);
+      } finally {
+        setLoading(false);
       }
-    }, [isloggedin, setcount]);
-    
-  
-   
+    };
+
+    fetchCartItems();
+  }, [setcount]); // ✅ Only runs once & updates count
+
   const handleBuyNow = (item) => {
-    alert(`Buying: ${item.product.productname} (₹${item.product.price})`);
-    // Example: navigate(`/checkout/${item._id}`);
+    alert(`Buying: ${item.product?.productname} (₹${item.product?.price})`);
+    // navigate(`/checkout/${item._id}`); // You can add navigation if needed
   };
 
   const totalPrice = cartItems.reduce((acc, item) => {
-    return acc + item.product.price * item.quantity;
+    return acc + (item.product?.price || 0) * item.quantity;
   }, 0);
 
   if (loading) return <p>Loading...</p>;
@@ -64,15 +53,18 @@ export default function Carts() {
             {cartItems.map((item) => (
               <div className="cart-item" key={item._id}>
                 <img
-                  src={item.product.image}
-                  alt={item.product.productname}
+                  src={item.product?.image}
+                  alt={item.product?.productname}
                   className="cart-img"
                 />
                 <div className="cart-details">
-                  <h3>{item.product.productname}</h3>
-                  <p>Price: ₹{item.product.price}</p>
+                  <h3>{item.product?.productname}</h3>
+                  <p>Price: ₹{item.product?.price}</p>
                   <p>Quantity: {item.quantity}</p>
-                  <button className="buy-now-btn" onClick={() => handleBuyNow(item)}>
+                  <button
+                    className="buy-now-btn"
+                    onClick={() => handleBuyNow(item)}
+                  >
                     Buy Now
                   </button>
                 </div>
@@ -80,7 +72,6 @@ export default function Carts() {
             ))}
           </div>
 
-          {/* ✅ Total Price Display */}
           <div className="total-price-box">
             <h3>Total Price:</h3>
             <p>₹{totalPrice}</p>
@@ -90,3 +81,5 @@ export default function Carts() {
     </div>
   );
 }
+
+export default withLogin(Carts);
