@@ -1,0 +1,14 @@
+
+.moh{
+    position: relative;
+    top:80px;
+}
+
+@media(max-width:450px)
+{
+    .moh{
+        
+        position: relative;
+        top:10px;
+    }
+}

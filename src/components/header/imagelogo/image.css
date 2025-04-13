@@ -12,3 +12,12 @@
   left: 15px;
   
 }
+@media(max-width:450px)
+{
+  .image-container
+{
+     
+     width: 18%;
+   
+}
+}

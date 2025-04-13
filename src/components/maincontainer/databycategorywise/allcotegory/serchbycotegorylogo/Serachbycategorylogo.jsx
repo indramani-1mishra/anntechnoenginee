@@ -6,10 +6,10 @@ import './searchcategory.css';
 export default function Serachbycategorylogo() {
   return (
     <div className='allcategorycontainer'>
-      <div>
+      <div  className='imgcontainer'>
       <img src={image2} alt='image1'/>
       </div>
-      <div>
+      <div className='imgcontainer'>
         <img src={image1} alt='image'/>
       </div>
     </div>

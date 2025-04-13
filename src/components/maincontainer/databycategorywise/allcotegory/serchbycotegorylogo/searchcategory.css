@@ -12,3 +12,29 @@
    overflow-x: hidden;
 
 }
+
+@media (max-width:450px)
+{
+    .allcategorycontainer{
+   
+        position: relative;
+        top:30px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       flex-direction: column;
+       box-sizing: border-box;
+       overflow-x: hidden;
+       width: 100%;
+    
+    }
+    .imgcontainer{
+        width: 100%;
+        
+    }
+    .imgcontainer>img{
+        width: 100%;
+    }
+}

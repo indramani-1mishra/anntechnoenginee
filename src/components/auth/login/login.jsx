@@ -90,6 +90,8 @@ export default function Login() {
 
       <div className="login-submit">
         <button type="submit">Login</button>
+        <br></br>
+        <button type="button" onClick={()=>navigate('/signup')} style={{"backgroundColor":"red","marginTop":"10px"}}>first signup</button>
       </div>
 
       {message && <p className="login-message">{message}</p>}

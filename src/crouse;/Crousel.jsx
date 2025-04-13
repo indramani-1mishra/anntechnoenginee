@@ -7,6 +7,7 @@ import c2 from "../assets/image2.webp";
 import c3 from "../assets/image3.webp";
 import c4 from "../assets/image4.webp";
 import c5 from "../assets/image5.webp";
+import './crousel.css'
 
 
 
@@ -24,7 +25,7 @@ const DemoCarousel = () => {
     };
 
     return (
-       <div style={{"position":"relative","top":"80px" ,} }>
+       <div className='moh'>
         <Carousel showArrows={true} onChange={onChange} onClickItem={onClickItem} onClickThumb={onClickThumb} infiniteLoop={true} autoPlay={true} showThumbs={false}>
     <div>
         <img src={c1} alt="Slide 1" />
