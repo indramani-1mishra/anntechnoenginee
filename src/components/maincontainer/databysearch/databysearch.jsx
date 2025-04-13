@@ -28,9 +28,7 @@ export default function Databysearch() {
     return inputLower === catLower || inputLower.includes(catLower);
   });
 
-  console.log("Input:", input);
-  console.log("Trimmed:", inputLower);
-  console.log("Matched Category?", isCategory);
+  
 
   return (
     <>

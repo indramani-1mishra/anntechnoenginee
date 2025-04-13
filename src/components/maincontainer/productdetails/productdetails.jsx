@@ -2,7 +2,6 @@ import React, { useContext,  } from 'react';
 import {  useParams } from 'react-router-dom';
 import Usefetchapi from '../../customhooks/Usefetchapi';
 import Reuseablecompont from '../../reauseblecomponet/Reuseablecompont';
-
 import SearchContext from '../../../context/context';
 import ProductdetailsReauseble from '../../reauseblecomponet/ProductDetailsReausebleComponent/ProductdetailsReauseble';
 import Loder from '../../reauseblecomponet/loder/Loder';
