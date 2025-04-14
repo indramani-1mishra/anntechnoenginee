@@ -15,7 +15,7 @@ function App() {
     <>
       <Completeheader />
 
-      {/* 👇 Carousel only on homepage */}
+      
       {location.pathname === '/' && <DemoCarousel />}
     
 
