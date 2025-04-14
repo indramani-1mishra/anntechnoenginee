@@ -8,9 +8,12 @@ import {
   menuData,
   menuDatawomen,
 } from "../reuseablelogic/helpercode";
+import { RxCross1 } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 export default function Linkscontainer() {
   const [hoveredMenu, setHoveredMenu] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div 
@@ -58,6 +61,7 @@ export default function Linkscontainer() {
           {hoveredMenu === "beauty" && <Reuseblelogic menuData={beautyMenuData} />}
         </li>
       </ul>
+      <button className="btn22" onClick={()=>navigate('/')}><RxCross1 fontSize={"23px"}/></button>
     </div>
   );
 }

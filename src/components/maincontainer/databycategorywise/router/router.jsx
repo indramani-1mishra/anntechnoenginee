@@ -19,6 +19,7 @@ import Login from '../../../auth/login/login'
 import Userdetail from '../../../auth/userdetails/userdetail'
 import Addtocart from '../../carts/addtocarts/carts'
 import Carts from '../../carts/addtocarts/carts'
+import Linksformobile from '../../../header/completeheader/linksformobile/Linksformobile'
 
 export default function Routers() {
   return (
@@ -42,6 +43,7 @@ export default function Routers() {
         <Route path="/login" element={<Login/>}/>
         <Route path='/userdetails'element={<Userdetail/>}/>
         <Route path='/carts'element={<Carts/>}/>
+        <Route path='/linksm' element={<Linksformobile/>}/>
       </Routes>
    
 

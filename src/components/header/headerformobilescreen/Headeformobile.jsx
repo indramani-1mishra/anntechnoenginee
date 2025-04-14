@@ -4,9 +4,11 @@ import Imagelogo from '../imagelogo/imagelogo'
 import { FaAlignCenter } from 'react-icons/fa'
 import { FaAlignJustify } from 'react-icons/fa6'
 import { icons } from './helpercode'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './headerformobile.css'
 export default function Headeformobile() {
+
+  const navigate  = useNavigate();
   return (
     <>
     <div className='allheadermobile'>
@@ -14,7 +16,7 @@ export default function Headeformobile() {
       <div className='firstcontainer'>
 
       <div className='fi'>
-       <div className='lineicon'>
+       <div className='lineicon' onClick={()=> navigate('/linksm')}>
         <FaAlignJustify/>
        </div>
        <Imagelogo/>
