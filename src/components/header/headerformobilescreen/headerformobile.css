@@ -38,7 +38,7 @@
   
   .iconsc a {
     color: #333;
-    font-size: 22px;
+    font-size: 25px;
     text-decoration: none;
   }
   
@@ -47,3 +47,7 @@
     width: 100%;
   }
   
+  .iconsc{
+   
+    padding: 2px;
+  }

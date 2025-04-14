@@ -209,5 +209,34 @@ top:  150px;
         border-top: none;
         margin: 0;
     }
+    .first{
+       
+        text-align: center;
+        width: 100%;
+        position: relative;
+        top:10px;
+    }
+    .first li a{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        word-spacing: 3px;
+    }
+    .first > h3 {
+        background-color: azure;
+        animation: animate 1s ease-in alternate;
+    }
+    
+    @keyframes animate {
+        0% {
+            background-color: grey;
+            color: white;
+        }
+        100% {
+            background-color: azure;
+            color: white;
+        }
+    }
+    
+
 
 }
