@@ -11,7 +11,7 @@ export default function Categoryitems() {
     {categories.map((item)=>
     {
       return <div  key={item.path} className='categoryitems1'>
-       <Link to={item.path}> <img  src={item.image}  alt={item.name} /></Link>
+       <Link to={item.path}> <img  src={item.image}  alt={item.name} loading='lazy' /></Link>
       </div>  
     })}
     </div>

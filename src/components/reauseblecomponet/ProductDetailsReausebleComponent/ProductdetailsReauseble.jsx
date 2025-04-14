@@ -6,7 +6,7 @@ export default function ProductdetailsReauseble({product,onclickhandler}) {
     <>
          <div className="product-details-container">
         <div className="product-image">
-          <img src={product.image} alt={product.description} />
+          <img src={product.image} alt={product.description} loading='lazy' />
         </div>
         <div className="product-info">
           <h2>{product.productname}</h2>

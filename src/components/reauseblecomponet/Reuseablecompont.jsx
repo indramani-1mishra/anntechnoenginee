@@ -31,7 +31,7 @@ export default function Reuseablecompont({data}) {
                   
                 </div>
                 <div className='photo' >
-                    <img src={item.image} alt={item.productname} width="200" />
+                    <img src={item.image} alt={item.productname} width="200"  loading='lazy'/>
                 </div>
             </div>
         ))
