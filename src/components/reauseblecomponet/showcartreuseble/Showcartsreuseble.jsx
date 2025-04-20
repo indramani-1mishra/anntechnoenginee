@@ -1,5 +1,5 @@
 import './addtocart.css'
-export default function CartItemList({ items, onBuyNow }) {
+export default function CartItemList({ items, onBuyNow,onRemove}) {
   return (
     <div className="cart-items">
       {items.map((item) => (
@@ -15,6 +15,9 @@ export default function CartItemList({ items, onBuyNow }) {
             <p>Quantity: {item.quantity}</p>
             <button className="buy-now-btn" onClick={() => onBuyNow(item)}>
               Buy Now
+            </button>
+            <button className="buy-now-btn" onClick={() => onRemove(item)} style={{"backgroundColor":"red","marginLeft":"10px"}}>
+               remove to cart
             </button>
           </div>
         </div>
