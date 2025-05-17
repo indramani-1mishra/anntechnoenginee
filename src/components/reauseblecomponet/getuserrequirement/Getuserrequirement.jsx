@@ -6,7 +6,7 @@ export default function Getuserrequirement() {
   <form className="custom-form"  action="https://formsubmit.co/info@anntechno.in" method="POST" >
   <div className="form-group">
    <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_next" value="http://localhost:5173/thankyou" />
+  <input type="hidden" name="_next" value="https://anntechnobyraj.netlify.app/thankyou" />
 
     <label htmlFor="requirement">Describe Your Requirement</label>
     <textarea

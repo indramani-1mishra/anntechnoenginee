@@ -29,7 +29,7 @@ const SupplierInfoModal = () => {
 
         <form style={styles.form} action="https://formsubmit.co/info@anntechno.in" method="POST">
   <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_next" value="http://localhost:5173/thankyous" />
+  <input type="hidden" name="_next" value="https://anntechnobyraj.netlify.app/thankyous" />
 
   <input
     type="text"
