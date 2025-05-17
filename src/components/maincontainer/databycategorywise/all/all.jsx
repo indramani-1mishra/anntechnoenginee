@@ -5,7 +5,7 @@ import Reuseablecompont from '../../../reauseblecomponet/Reuseablecompont';
 
 export default function All() {
   const [product, setProduct] = useState([]);
-  const { response } = Usefetchapi("https://mytrabackendclone-3.onrender.com/api/v1/products");
+  const { response } = Usefetchapi("https://technoengnearbackend.onrender.com/api/v1/products/");
 
   useEffect(() => {
     if (response && response.data && Array.isArray(response.data)) {

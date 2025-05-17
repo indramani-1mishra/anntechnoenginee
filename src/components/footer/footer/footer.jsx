@@ -3,7 +3,7 @@ import './footer.css';
 
 import { FaCcVisa } from "react-icons/fa"; 
 import { FaCcDiscover } from "react-icons/fa";
-import { address, contactInfo, data, footerActions, footerLinks, infoLinks, socialLinks } from "./helpecode";
+import { address, contactInfo, data, footerActions, footerLinks, infoLinks, infoLinks1, socialLinks } from "./helpecode";
 
 
 export default function Footer() {
@@ -13,42 +13,32 @@ export default function Footer() {
       <div className="upperfooter">
          <div className="leftcontainer">
            <div className="first"> 
-                <h3>About Us</h3>
+                <h3>company</h3>
              <ul>
-              {footerLinks.map((item,index)=>{return(
-                <li key={index}><Link to="/">{item}</Link></li>
+              {footerLinks.map((item)=>{return(
+                <li key={item}><Link to="/">{item}</Link></li>
               )})}
              </ul>
            </div>
+          
+           
            <div className="first">
-           <h3>About Us</h3>
-           <ul>
-        {data.map((item, index) => {
-         return (
-          <li key={index}>
-         <Link to="/">{item}</Link>
-         </li>
-          );
-          })}
-         </ul>
-           </div>
-           <div className="first">
-           <h3>About Us</h3>
+           <h3>Products And Services</h3>
              <ul>
              {infoLinks.map((item,index)=>{
               return(
-                <li key={index}> <Link to="/">{item}</Link></li>
+                <li key={index}> <Link to="/">{item.name}</Link></li>
               )
              })}
-             </ul> 
- 
+             </ul>
+
            </div>
-           <div className="first">
-           <h3>About Us</h3>
+            <div className="first">
+           <h3>Products And Services</h3>
              <ul>
-             {infoLinks.map((item,index)=>{
+             {infoLinks1.map((item,index)=>{
               return(
-                <li key={index}> <Link to="/">{item}</Link></li>
+                <li key={index}> <Link to="/">{item.name}</Link></li>
               )
              })}
              </ul>
@@ -103,7 +93,7 @@ export default function Footer() {
               );
             })}
             <li>
-                 <span>© 2007-2025 Flipkart.com</span>
+                 <span><Link to="https://www.anntechnoengineer.com/">https://www.anntechnoengineer.com/</Link></span>
             </li>
             <li >
                <span><FaCcVisa className="visa" /></span> 

@@ -5,8 +5,10 @@ import Completeheader from "./components/header/completeheader/completeheader";
 import DemoCarousel from "./crouse;/Crousel";
 import Routers from "./components/maincontainer/databycategorywise/router/router";
 import Userdetail from './components/auth/userdetails/userdetail';
+import ProductInquiryCard from './components/reauseblecomponet/productenquirycard/Productenquirycard';
 
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const location = useLocation(); // 👈 yeh location object deta hai
@@ -22,8 +24,9 @@ function App() {
       <Routers />
       {location.pathname === '/' && <Footerbanner />}
       <Footer />
-
-    
+        <ToastContainer   position="top-center"
+  reverseOrder={false} />
+     
     </>
   );
 }

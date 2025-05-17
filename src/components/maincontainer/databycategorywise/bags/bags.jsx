@@ -1,12 +1,12 @@
 
 import Databycategory from '../../../reauseblecomponet/databycategoryreuseblecomponents';
 
-export default function Bags() {
+export default function Ultrasonic_Humidifier() {
   
 
   return (
     <>
-      <Databycategory category="bags"/>
+      <Databycategory category="Ultrasonic Humidifier"/>
     </>
   );
 }

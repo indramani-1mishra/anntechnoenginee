@@ -1,10 +1,10 @@
 
 import Databycategory from '../../../reauseblecomponet/databycategoryreuseblecomponents';
 
-export default function Eyewear() {
+export default function Desiccant_Dehumidifier() {
   return (
     <>
-      <Databycategory category="Eyewear" />
+      <Databycategory category="Desiccant Dehumidifier" />
     </>
   );
 }

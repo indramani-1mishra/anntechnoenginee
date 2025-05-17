@@ -3,7 +3,8 @@ import SearchContext from './context';
 
 export default function Contextwrapper({ children }) {
   const [input, setInput] = useState('');
- 
+ const [showemail,setshowemail]=useState(false);
+ const[showenquiry,setshowenquiry]=useState(false);
   
 
   const [isloggedin, setisloggedin] = useState(false);
@@ -40,7 +41,9 @@ export default function Contextwrapper({ children }) {
       input, setInput,
       name, setname,
       count, setcount,
-      isloggedin, setisloggedin
+      isloggedin, setisloggedin,
+      showemail,setshowemail,
+      setshowenquiry,showenquiry,
     }}>
       {children}
     </SearchContext.Provider>

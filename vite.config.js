@@ -6,6 +6,6 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: process.env.PORT || 5173,
-    allowedHosts: ['fullstactprojectmytraclone-1.onrender.com'], // <- Add this line
+    allowedHosts: ['https://technoengnearbackend.onrender.com'], // <- Add this line
   },
 })

@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 //import { menuData } from './helpercode'
 import './reuseblelogic.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+//import axios from 'axios';
 function   Reuseblelogic({menuData}) {
+   //const [data,setdata]= useState(null);
+     const navigate = useNavigate();
+  const onclickhandler=async(name)=>
+  {
+    try{
+         
+         navigate(`/databyname/${name}`)
 
+    }
+    catch(error)
+    {
+      console.log(error)
+    }
+  }
+ 
    
   return (
     <div className='allcontainer'>
@@ -14,7 +29,7 @@ function   Reuseblelogic({menuData}) {
                 <ul className='ulcs'>
                     {section.items.map((item,index)=>
                     {
-                        return <li key={index} className='liste'><Link to="/">{item}</Link></li>
+                        return <li key={index} className='liste' onClick={()=>onclickhandler(item.name)}>{item.name}</li>
                     })}
                 </ul>
             </div>

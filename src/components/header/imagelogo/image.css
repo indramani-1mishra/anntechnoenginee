@@ -1,23 +1,37 @@
 .image-container
 {
      
-     width: 4%;
+     width: 15%;
+
+    
    
 }
 
-.image-container>img{
-  height: 90%;
-  width: 90%;
+.image-container img{
+  height: 100%;
+  width: 100%;
   position: relative;
-  left: 15px;
-  
+  left: 0px;
+  padding: 5px 10px;
 }
-@media(max-width:450px)
+@media(max-width:500px)
 {
   .image-container
 {
      
-     width: 18%;
+     width: 50%;
+     height: 100%;
+    
+
    
 }
+.image-container img{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  left: 0px;
+  padding: 0;
+  font-size: 50px;
+}
+
 }

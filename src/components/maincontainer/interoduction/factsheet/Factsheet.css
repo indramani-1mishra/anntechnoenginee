@@ -1,0 +1,87 @@
+.factsheetcontainer {
+ width: 70%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 0px 3px 0px black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.factsheetcontainer h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  box-shadow: 0px 0px 3px 0px white;
+  text-align: center;
+  padding: 5px;
+  width: 70%;
+  
+  margin-left: 15%;
+  border-radius: 5px;
+  background: linear-gradient(90deg, red, yellow, green); /* FIXED: added missing comma */
+  background-size: 300% 300%;
+  animation: bg 5s linear infinite;
+  color: white; /* Optional: makes text stand out */
+}
+
+@keyframes bg {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.info p {
+  margin: 0;
+  width: 48%;
+  font-size: 16px;
+  color: #555;
+}
+
+.info p:first-child {
+  font-weight: bold;
+  color: #222;
+  text-transform: capitalize;
+  
+}
+
+@media (max-width:450px)
+{
+  .factsheetcontainer {
+ width: 99%;
+  margin: 0;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px 0px black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.factsheetcontainer h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+  box-shadow: 0px 0px 3px 0px white;
+  text-align: center;
+  padding: 5px;
+  width: 100%;
+  
+  margin-left: 0%;
+  border-radius: 5px;
+  background: linear-gradient(90deg, red, yellow, green); /* FIXED: added missing comma */
+  background-size: 300% 300%;
+  animation: bg 5s linear infinite;
+  color: white; /* Optional: makes text stand out */
+}
+
+
+}

@@ -1,11 +1,11 @@
 
 import Databycategory from '../../../reauseblecomponet/databycategoryreuseblecomponents';
-export default function Electranic() {
+export default function Dehumidifires() {
  
 
   return (
     <>
-     <Databycategory  category="electronics"/>
+     <Databycategory  category="Dehumidifires"/>
     </>
   );
 }

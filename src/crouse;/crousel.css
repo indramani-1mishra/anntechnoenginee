@@ -2,6 +2,15 @@
 .moh{
     position: relative;
     top:80px;
+     width: 100vw; /* full viewport width */
+    max-width: 100%;
+    background: linear-gradient(90deg, rgb(147, 116, 116), rgb(102, 102, 101), rgb(186, 246, 186)); /* FIXED: added missing comma */
+  background-size: 300% 300%;
+  animation: bg 5s linear infinite;
+    
+}
+.cv{
+    box-shadow: 0px 0px 5px 0px white;
 }
 
 @media(max-width:450px)
@@ -12,3 +21,17 @@
         top:10px;
     }
 }
+
+@keyframes bg {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+
+
+
+ 

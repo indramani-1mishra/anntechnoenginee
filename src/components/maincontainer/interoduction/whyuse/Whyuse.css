@@ -1,0 +1,82 @@
+.whyuse-container {
+  background: #fff;
+  padding: 40px 20px;
+  max-width: 70%;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0  0px 4px 0px black;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.whyuse-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.whyuse-description p {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-transform: capitalize;
+}
+
+.whyuse-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.whyuse-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.list-icon {
+  margin-right: 10px;
+  color: #007BFF;
+}
+
+.whyuse-contact {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  
+}
+
+.contact-button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width:450px)
+{
+  .whyuse-container {
+  background: #fff;
+  padding: 0 5px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 0  0px 4px 0px black;
+  font-family: 'Segoe UI', sans-serif;
+}
+}

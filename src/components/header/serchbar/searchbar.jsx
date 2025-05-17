@@ -3,6 +3,7 @@ import { IoIosSearch } from 'react-icons/io';
 import './searchbar.css';
 import SearchContext from '../../../context/context';
 import { useNavigate } from 'react-router-dom';
+import { categories } from '../../maincontainer/databysearch/helpercodeforsearch';
 
 export default function Searchbar() {
   const { setInput } = useContext(SearchContext);
@@ -11,10 +12,7 @@ export default function Searchbar() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
 
-  const categories = [
-    "all", "men", "women", "kids", "toys", "jewelry",
-    "electronics", "shoes", "Eyewear", "perfume", "bags", "laptop"
-  ];
+ 
 
   const onChangeHandler = (e) => {
     const value = e.target.value;

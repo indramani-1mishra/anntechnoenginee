@@ -9,6 +9,7 @@ export default function Usefetchapi(url) {
             try {
                 const response = await axios.get(url);
                 setresponse(response.data); // 👈 ye important hai!
+                console.log(response.data);
             } catch (err) {
                 console.error("Error in fetch API:", err);
             }

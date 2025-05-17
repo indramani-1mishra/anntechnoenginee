@@ -42,22 +42,29 @@
     line-height: 1.4;
   }
   
-  .buy-now-btn {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #1e90ff;
+ .buy-now-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  text-decoration: none;
+ background-color: #5c2e00;
+ color: white;
+  cursor: pointer;
+}
+  .buy-now-btn a{
     color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
   }
-  
-  .buy-now-btn:hover {
-    background-color: #0f66d0;
-  }
-  
+
+.buy-now-btn:hover {
+ 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.buy-now-btn:active {
+  transform: scale(0.98);
+}
+
   .loading {
     text-align: center;
     font-size: 1.2rem;

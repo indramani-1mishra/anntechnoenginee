@@ -4,34 +4,40 @@ import {  FaGithub, FaInstagram, FaSquareFacebook,FaToolbox, FaGift,   } from "r
 import { CiStar } from "react-icons/ci";
  export const data=["Contact Us","About Us","carries","flipcart stories","press","coprative process"];
  export const footerLinks = [
-    "Contact Us",
-    "About Us",
-    "Careers",
-    "Flipkart Stories",
-    "Press",
-    "Corporate Process"
+    "Introduction",
+  "Testimonial",
+  "Sitemap",
+  "Contact Us"
   ];
- export  const infoLinks = [
-    "Payments",
-    "Shipping",
-    "Cancellation & Returns",
-    "FAQ",
-    "Terms Of Use",
-    "Privacy",
-    "Security"
-  ];
+ export const infoLinks =[
+    { name: "Dehumidifires", path: "/Dehumidifires" },
+    { name: "Ultrasonic Humidifier", path: "/Ultrasonic Humidifier" },
+    { name: "Desiccant Dehumidifier", path: "/Desiccant Dehumidifier" },
+    { name: "Industrial Dehumidifier", path: "/Industrial Dehumidifier" }
+  ]
+
+   export const infoLinks1 =[
+    { name: "Humidifier", path: "/Humidifier" },
+    { name: "Industrial Dehumidifiers", path: "/Industrial Dehumidifiers" },
+    { name: "Ceiling Mounted Dehumidifier", path: "/Ceiling Mounted Dehumidifier" },
+    { name: "Ultrasonic Industrial Humidifier", path: "/Ultrasonic Industrial Humidifier" }
+  ]
+  
+
+
   
  export  const address = [
-    "Flipkart Internet Private Limited,",
-    "5th Floor, Ground Floor,",
-    "B-1, Sector 63,",
-    "Gurugram-301101, India."
+    "Ashish Kumar Nayak (Owner)",
+    "ANN Techno Engineer,",
+    "H. No. 840/2, 0, Chirag Delhi Primary School Near Shiv Mandir",
+    
+    "New Delhi - 110017, Delhi, India"
   ];
 
   export const contactInfo = [
-    "Flipkart Internet Private Limited,",
-    "Email: support@flipkart.com",
-    "Phone: +91 123 456 7890"
+    "anntechnoengineer.com",
+    "Email: info@anntechno.in",
+    "Phone: +91 88511 48551"
   ];
   
    export const socialLinks = [

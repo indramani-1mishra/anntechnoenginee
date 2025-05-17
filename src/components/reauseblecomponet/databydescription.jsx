@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import Usefetchapi from '../customhooks/Usefetchapi';
 import Reuseablecompont from './Reuseablecompont';
 
-export default function Databydescription({ description }) {
+
+export default function Databydescription({ category }) {
   const [data, setData] = useState([]);
   const { response } = Usefetchapi(
-    `https://mytrabackendclone-3.onrender.com/api/v1/products/description/${description}`
+    `https://technoengnearbackend.onrender.com/api/v1/products/search/${category}`
   );
 
   useEffect(() => {
