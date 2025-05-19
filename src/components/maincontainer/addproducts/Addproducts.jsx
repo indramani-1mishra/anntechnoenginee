@@ -1,27 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './Addproducts.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+// 🔁 Initial empty form values
+const initialFormData = {
+  name: '',
+  price: '',
+  minOrderQty: '',
+  capacity: '',
+  usage: '',
+  material: '',
+  brand: '',
+  voltage: '',
+  modelType: '',
+  application: '',
+  features: '',
+  brochureUrl: '',
+  airflow: '',
+  category: '',
+  color: '',
+  image: null,
+};
+
 const ADDProductForm = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    price: '',
-    minOrderQty: '',
-    capacity: '',
-    usage: '',
-    material: '',
-    brand: '',
-    voltage: '',
-    modelType: '',
-    application: '',
-    features: '',
-    brochureUrl: '',
-    airflow: '',
-    category: '',
-    color: '',
-    image: null, // file object
-  });
+  const [formData, setFormData] = useState(initialFormData);
+  const fileInputRef = useRef(null); // 🔁 For resetting file input
 
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
@@ -29,7 +33,7 @@ const ADDProductForm = () => {
     if (type === 'file') {
       setFormData((prev) => ({
         ...prev,
-        [name]: files[0], // Store file object
+        [name]: files[0],
       }));
     } else {
       setFormData((prev) => ({
@@ -46,7 +50,6 @@ const ADDProductForm = () => {
 
     for (const key in formData) {
       if (key === 'features') {
-        // Convert comma-separated string to array
         const featuresArray = formData.features
           .split(',')
           .map((f) => f.trim())
@@ -69,12 +72,12 @@ const ADDProductForm = () => {
         }
       );
 
-     // console.log(response.data);
-     
-      toast.success("Product uploaded successfully!");
+      toast.success('Product uploaded successfully!');
+      setFormData(initialFormData); // ✅ Reset form fields
+      if (fileInputRef.current) fileInputRef.current.value = null; // ✅ Reset file input
+
     } catch (error) {
       console.error('Upload error:', error);
-     
       toast.error('Error uploading product');
     }
   };
@@ -95,7 +98,6 @@ const ADDProductForm = () => {
             { label: 'Voltage', name: 'voltage', type: 'text' },
             { label: 'Model Type', name: 'modelType', type: 'text' },
             { label: 'Application', name: 'application', type: 'text' },
-            { label: 'Image', name: 'image', type: 'file' },
             { label: 'Brochure URL', name: 'brochureUrl', type: 'text' },
             { label: 'Airflow', name: 'airflow', type: 'text' },
             { label: 'Category', name: 'category', type: 'text' },
@@ -108,11 +110,23 @@ const ADDProductForm = () => {
                 name={field.name}
                 required={field.required || false}
                 className="form-control"
-                value={field.type === 'file' ? undefined : formData[field.name]}
+                value={formData[field.name]}
                 onChange={handleChange}
               />
             </div>
           ))}
+
+          {/* File input separately handled */}
+          <div className="form-group">
+            <label className="form-label">Image</label>
+            <input
+              type="file"
+              name="image"
+              className="form-control"
+              ref={fileInputRef}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
         <div className="mb-3k">
