@@ -6,7 +6,7 @@ import './logo.css';
 import Logincontainer from '../logincontainer/logincontainer';
 import { useNavigate } from 'react-router-dom';
 import SearchContext from '../../../context/context';
-
+import { IoMdAddCircleOutline } from "react-icons/io";
 export default function Logocontainer() {
   const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
@@ -38,9 +38,9 @@ export default function Logocontainer() {
       </div>
 
       {/* Wishlist */}
-      <div className='logos'>
-        <span><CiHeart style={{ fontSize: "20px" }} /></span>
-        <span>Wishlist</span>
+      <div className='logos' onClick={()=>navigate('/Addproducts')}>
+        <span><IoMdAddCircleOutline style={{ fontSize: "20px" }} /></span>
+        <span>Add products</span>
       </div>
 
       {/* Cart/Bag */}

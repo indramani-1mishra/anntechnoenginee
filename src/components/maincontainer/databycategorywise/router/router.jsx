@@ -12,6 +12,7 @@ import InteroductionContainer from '../../interoduction/Interoductioncontainer/I
 import VideoReusable from '../../../reauseblecomponet/videoreuseblecomponents/Videoresuseble';
 import Footerbanner from '../../../footer/foterbanner.jsx/footerbanner';
 import SupplierInfoModal from '../../../footer/foterbanner.jsx/Supplayerinfomodel';
+import ADDProductForm from '../../addproducts/Addproducts';
 
 // Lazy loaded components
 
@@ -61,6 +62,7 @@ export default function Routers() {
         <Route path='/showvideo/:id/:hedding' element={<VideoReusable/>}/>
         <Route path='/sellerinfo' element={<Footerbanner/>}/>
         <Route path="/email" element={<SupplierInfoModal/>}/>
+        <Route path='/Addproducts' element={<ADDProductForm/>}/>
       </Routes>
      </MainLayout>
     </Suspense>

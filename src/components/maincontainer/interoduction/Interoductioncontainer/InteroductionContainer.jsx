@@ -10,6 +10,7 @@ import Videoresuseble from '../../../reauseblecomponet/videoreuseblecomponents/V
 import VideoCard from '../../../reauseblecomponet/videocard/Videocard'
 import Videocontainer from '../videocontroller/Videocontainer'
 import ProductInquiryCard from '../../../reauseblecomponet/productenquirycard/Productenquirycard'
+import Certificatecontainer from '../certificatecontainer/Certificatecontainer'
 
 
 export default function InteroductionContainer() {
@@ -33,15 +34,7 @@ export default function InteroductionContainer() {
         <Whyuse/>
         <Aboutus/>
         <Ourteam/>
-        <Interoductionreuseble heading="ISO Certification"
-         para="Our ISO Certificate"
-           image="/isocerticate.webp" 
-         />
-         <Interoductionreuseble
-            heading="Awards and Achievements"
-            para="CE certificate"
-            image='/certificate2.webp'
-         />
+          <Certificatecontainer/>
          <Interoductionreuseble
             heading="Manufacturing Unit"
             para="Manufactureing unit"
