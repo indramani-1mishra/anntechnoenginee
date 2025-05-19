@@ -22,11 +22,8 @@ export default function Logocontainer() {
       {/* Profile + Login dropdown */}
       <div
         className='logos profile-container'
-        tabIndex="0"
-        aria-haspopup="true"
-        aria-expanded={showLogin}
-        onMouseEnter={() => setShowLogin(true)}
-        onMouseLeave={() => setShowLogin(false)}
+       
+        
       >
         <span><FaRegUser style={{ fontSize: "20px" }} /></span>
         <span>Profile</span>
