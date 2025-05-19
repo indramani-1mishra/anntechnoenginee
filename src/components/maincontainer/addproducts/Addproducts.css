@@ -64,6 +64,7 @@ textarea.form-control {
   font-size: 16px;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  color: white;
 }
 
 .btn-primary:hover {

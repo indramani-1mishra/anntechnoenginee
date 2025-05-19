@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import './Addproducts.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Navigate } from 'react-router-dom';
 
 // 🔁 Initial empty form values
 const initialFormData = {
@@ -144,6 +145,9 @@ const ADDProductForm = () => {
         <button type="submit" className="btn btn-primary">
           Upload Product
         </button>
+        <button type="button" className="btn btn-primary" onClick={Navigate('/')}>
+          exit
+        </button> 
       </form>
     </div>
   );
