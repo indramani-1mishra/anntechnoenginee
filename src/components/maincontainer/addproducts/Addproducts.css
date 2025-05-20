@@ -9,12 +9,18 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1000px;
   background: #fff;
-  padding: 40px;
+  padding: 10px;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   margin: 50px auto;
+  
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+   
+
   
 }
 
@@ -89,8 +95,10 @@ textarea.form-control {
 
 .form-group {
   display: flex;
- 
+  padding: 5px;
   flex-direction: column;
+  width: 40%;
+
 }
 
 /* Adjust for mobile */
@@ -149,4 +157,13 @@ textarea.form-control {
     100%{
         filter: hue-rotate(360deg);
     }
+}
+
+form{
+   
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
 }

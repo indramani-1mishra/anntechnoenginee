@@ -5,7 +5,7 @@ export default function Men() {
  
   return (
     <>
-      <Databycategory  category="men"/>
+      <Databycategory  category="Ceiling Mounted Dehumidifier"/>
     </>
   );
 }

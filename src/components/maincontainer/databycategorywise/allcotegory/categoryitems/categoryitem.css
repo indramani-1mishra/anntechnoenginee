@@ -9,7 +9,10 @@
     flex-wrap: wrap;
     padding: 5px;
     gap: 5px;
+    background-color: white;
+   
 }
+
 .categoryitems1{
     
     margin: 5px;

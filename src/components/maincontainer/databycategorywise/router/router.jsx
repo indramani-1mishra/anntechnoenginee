@@ -13,6 +13,7 @@ import VideoReusable from '../../../reauseblecomponet/videoreuseblecomponents/Vi
 import Footerbanner from '../../../footer/foterbanner.jsx/footerbanner';
 import SupplierInfoModal from '../../../footer/foterbanner.jsx/Supplayerinfomodel';
 import ADDProductForm from '../../addproducts/Addproducts';
+import Ceiling_Mounted_Dehumidifier from '../perfume/perfume';
 
 // Lazy loaded components
 
@@ -63,6 +64,7 @@ export default function Routers() {
         <Route path='/sellerinfo' element={<Footerbanner/>}/>
         <Route path="/email" element={<SupplierInfoModal/>}/>
         <Route path='/Addproducts' element={<ADDProductForm/>}/>
+        <Route path='/Ceiling_Mounted_Dehumidifier' element={<Ceiling_Mounted_Dehumidifier/>}/>
       </Routes>
      </MainLayout>
     </Suspense>
