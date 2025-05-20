@@ -268,7 +268,7 @@ const ADDProductForm = () => {
   return (
     <div className="container">
      
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='formv'>
         <div className="form-group">
           <label className="form-label">Category</label>
           <select

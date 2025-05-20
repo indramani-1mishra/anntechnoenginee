@@ -4,23 +4,24 @@ import {  FaGithub, FaInstagram, FaSquareFacebook,FaToolbox, FaGift,   } from "r
 import { CiStar } from "react-icons/ci";
  export const data=["Contact Us","About Us","carries","flipcart stories","press","coprative process"];
  export const footerLinks = [
-    "Introduction",
-  "Testimonial",
-  "Sitemap",
-  "Contact Us"
+   
+   { name: "Introduction", path: "/Introduction" },
+    { name: "Contact Us", path: "/sellerinfo" },
+     { name: "Testimonial", path: "/Testimonial" },
+      { name: "Sitemap", path: "/Sitemap" },
   ];
  export const infoLinks =[
     { name: "Dehumidifires", path: "/Dehumidifires" },
-    { name: "Ultrasonic Humidifier", path: "/Ultrasonic Humidifier" },
-    { name: "Desiccant Dehumidifier", path: "/Desiccant Dehumidifier" },
-    { name: "Industrial Dehumidifier", path: "/Industrial Dehumidifier" }
+    { name: "Ultrasonic Humidifier", path: "/Ultrasonic_Humidifier" },
+    { name: "Desiccant Dehumidifier", path: "/Desiccant_Dehumidifier" },
+    { name: "Industrial Dehumidifier", path: "/Industrial_Dehumidifier" }
   ]
 
    export const infoLinks1 =[
     { name: "Humidifier", path: "/Humidifier" },
-    { name: "Industrial Dehumidifiers", path: "/Industrial Dehumidifiers" },
-    { name: "Ceiling Mounted Dehumidifier", path: "/Ceiling Mounted Dehumidifier" },
-    { name: "Ultrasonic Industrial Humidifier", path: "/Ultrasonic Industrial Humidifier" }
+    { name: "Industrial Dehumidifiers", path: "/Industrial_Dehumidifier" },
+    { name: "Ceiling Mounted Dehumidifier", path: "/Ceiling_Mounted_Dehumidifier" },
+    { name: "Ultrasonic Industrial Humidifier", path: "/Ultrasonic_Humidifier" }
   ]
   
 

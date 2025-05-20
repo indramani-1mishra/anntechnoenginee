@@ -16,7 +16,7 @@ export default function Footer() {
                 <h3>company</h3>
              <ul>
               {footerLinks.map((item)=>{return(
-                <li key={item}><Link to="/">{item}</Link></li>
+                <li key={item}><Link to={item.path}>{item.name}</Link></li>
               )})}
              </ul>
            </div>
@@ -27,7 +27,7 @@ export default function Footer() {
              <ul>
              {infoLinks.map((item,index)=>{
               return(
-                <li key={index}> <Link to="/">{item.name}</Link></li>
+                <li key={index}> <Link to={item.path}>{item.name}</Link></li>
               )
              })}
              </ul>
@@ -38,7 +38,7 @@ export default function Footer() {
              <ul>
              {infoLinks1.map((item,index)=>{
               return(
-                <li key={index}> <Link to="/">{item.name}</Link></li>
+                <li key={index}> <Link to={item.path}>{item.name}</Link></li>
               )
              })}
              </ul>
