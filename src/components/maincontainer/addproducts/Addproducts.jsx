@@ -10,7 +10,8 @@ const initialFormData = {
   features: '',
   image: null,
   name: '',
-  // All your field keys...
+
+  // Already existing fields for other categories...
   make: '',
   model: '',
   dehumidifyingCapacity: '',
@@ -27,7 +28,6 @@ const initialFormData = {
   bodyType: '',
   productDimensions: '',
   qualityApproval: '',
-
   processAirFlow: '',
   reactivationAirFlow: '',
   appliedTemperature: '',
@@ -37,7 +37,6 @@ const initialFormData = {
   current: '',
   dimension: '',
   weight: '',
-
   humidificationCapacity: '',
   powerInput: '',
   airVolume: '',
@@ -66,6 +65,28 @@ const initialFormData = {
   ceilingWaterTankCapacity: '',
   ceilingProductDimensions: '',
   ceilingQualityApproval: '',
+
+  // ✅ New fields for Electric Humidifier:
+  evaporationCapacity: '',
+  atomizingCapacity: '',
+  waterCapacity: '',
+  waterPressure: '',
+  mistSize: '',
+  workTemperature: '',
+  cleaningFrequency: '',
+  capacity: '',
+  inletFlow: '',
+  inletPressure: '',
+  inletTemperature: '',
+  inletMoisture: '',
+  outletFlow: '',
+  outletPressure: '',
+  outletTemperature: '',
+  outletDewPoint: '',
+  linePressure: '',
+  cycleTime: '',
+  electricSupply: '',
+  operation: '',
 };
 
 const categoryFields = {
@@ -123,27 +144,64 @@ const categoryFields = {
     { label: 'Weight', name: 'weight', type: 'text' },
     { label: 'Quality/Safety Approval', name: 'qualityApproval', type: 'text' },
   ],
-  'Desiccant Dehumidifier': [
-    { label: 'Make', name: 'make', type: 'text' },
-   { label: 'name', name: 'name', type: 'text', required: true },
-    { label: 'Model', name: 'model', type: 'text' },
-    { label: 'Humidification Capacity', name: 'humidificationCapacity', type: 'text' },
-    { label: 'Power Supply', name: 'powerSupply', type: 'text' },
-    { label: 'Power Input (w)', name: 'powerInput', type: 'text' },
-    { label: 'Air Volume', name: 'airVolume', type: 'text' },
-    { label: 'Control Mode', name: 'controlMode', type: 'text' },
-    { label: 'Humidity Control', name: 'humidityControl', type: 'text' },
-    { label: 'Control Precision', name: 'controlPrecision', type: 'text' },
-    { label: 'Mist Outlet', name: 'mistOutlet', type: 'text' },
-    { label: 'Volume of Water Tank', name: 'waterTankVolume', type: 'text' },
-    { label: 'Way of Water', name: 'wayOfWater', type: 'text' },
-    { label: 'Water Quality Required', name: 'waterQualityRequired', type: 'text' },
-    { label: 'Body Type', name: 'bodyType', type: 'text' },
-    { label: 'Weight', name: 'weight', type: 'text' },
-    { label: 'Dimensions (mm)', name: 'dimensions', type: 'text' },
-    { label: 'Quality/Safety Approval', name: 'qualityApproval', type: 'text' },
-  ],
-    'Ceiling Mounted Dehumidifier': [
+ 'Desiccant Dehumidifier': [
+  { label: 'Make', name: 'make', type: 'text' },
+  { label: 'Model', name: 'model', type: 'text' },
+  { label: 'Dehumidifying Capacity (20°C, 60%)', name: 'dehumidifyingCapacity', type: 'text' },
+  { label: 'Process Air Flow', name: 'processAirFlow', type: 'text' },
+  { label: 'Reactivation Air Flow', name: 'reactivationAirFlow', type: 'text' },
+  { label: 'Applied Temperature', name: 'appliedTemperature', type: 'text' },
+  { label: 'Max Power', name: 'maxPower', type: 'text' },
+  { label: 'Power Rating', name: 'powerRating', type: 'text' },
+  { label: 'Voltage', name: 'voltage', type: 'text' },
+  { label: 'Current', name: 'current', type: 'text' },
+  { label: 'Dimension', name: 'dimension', type: 'text' },
+  { label: 'Weight', name: 'weight', type: 'text' },
+  { label: 'Quality/Safety Approval', name: 'qualityApproval', type: 'text' },
+],
+'Electric Humidifier': [
+  { label: 'Make', name: 'make', type: 'text' },
+  { label: 'Model', name: 'model', type: 'text' },
+  { label: 'Evaporation Capacity', name: 'evaporationCapacity', type: 'text' },
+  { label: 'Atomizing Capacity', name: 'atomizingCapacity', type: 'text' },
+  { label: 'Power Supply', name: 'powerSupply', type: 'text' },
+  { label: 'Power Input (w)', name: 'powerInput', type: 'text' },
+  { label: 'Water Capacity', name: 'waterCapacity', type: 'text' },
+  { label: 'Water Pressure', name: 'waterPressure', type: 'text' },
+  { label: 'Size of Water Mist', name: 'mistSize', type: 'text' },
+  { label: 'Work Temperature', name: 'workTemperature', type: 'text' },
+  { label: 'Body Type', name: 'bodyType', type: 'text' },
+  { label: 'Weight', name: 'weight', type: 'text' },
+  { label: 'Dimensions (L × W × H)', name: 'dimensions', type: 'text' },
+  { label: 'Cleaning Frequency', name: 'cleaningFrequency', type: 'text' },
+],
+'Refrigerated Type Compressed Air Dryer': [
+  { label: 'Make', name: 'make', type: 'text' },
+  { label: 'Model', name: 'model', type: 'text' },
+  { label: 'Capacity', name: 'capacity', type: 'text' },
+
+  // Inlet Conditions
+  { label: 'Inlet Flow', name: 'inletFlow', type: 'text' },
+  { label: 'Inlet Pressure', name: 'inletPressure', type: 'text' },
+  { label: 'Inlet Temperature', name: 'inletTemperature', type: 'text' },
+  { label: 'Inlet Moisture Contents', name: 'inletMoisture', type: 'text' },
+
+  // Outlet Conditions
+  { label: 'Outlet Flow', name: 'outletFlow', type: 'text' },
+  { label: 'Outlet Pressure', name: 'outletPressure', type: 'text' },
+  { label: 'Outlet Temperature', name: 'outletTemperature', type: 'text' },
+  { label: 'Outlet Dew Point', name: 'outletDewPoint', type: 'text' },
+  { label: 'Line Pressure', name: 'linePressure', type: 'text' },
+
+  { label: 'Cycle Time', name: 'cycleTime', type: 'text' },
+  { label: 'Electric Supply', name: 'electricSupply', type: 'text' },
+  { label: 'Operation', name: 'operation', type: 'text' },
+  { label: 'Refrigerant', name: 'refrigerant', type: 'text' },
+  { label: 'Product Dimensions', name: 'dimensions', type: 'text' },
+  { label: 'Quality/Safety Approval', name: 'qualityApproval', type: 'text' },
+],
+
+ 'Ceiling Mounted Dehumidifier': [
     { label: 'Make', name: 'ceilingMake', type: 'text', required: true },
     { label: 'name', name: 'name', type: 'text', required: true },
     { label: 'Model', name: 'ceilingModel', type: 'text', required: true },
@@ -262,12 +320,15 @@ const ADDProductForm = () => {
             className="form-control"
             required
           >
+          
             <option value="">Select Category</option>
             <option value="Dehumidifires">Dehumidifiers</option>
             <option value="Industrial Dehumidifier">Industrial Dehumidifier</option>
             <option value="Desiccant Dehumidifier">Desiccant Dehumidifier</option>
             <option value="Ultrasonic Humidifier">Ultrasonic Humidifier</option>
             <option value="Ceiling Mounted Dehumidifier">Ceiling Mounted Dehumidifier</option>
+              <option value="Refrigerated Type Compressed Air Dryer">Refrigerated Type Compressed Air Dryer</option>
+                <option value="Electric Humidifier">Electric Humidifier</option>
           </select>
         </div>
 
