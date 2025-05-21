@@ -279,7 +279,7 @@ const ADDProductForm = () => {
             required
           >
             <option value="">Select Category</option>
-            <option value="Dehumidifier">Dehumidifiers</option>
+            <option value="Dehumidifires">Dehumidifiers</option>
              <option value="Industrial Dehumidifier">Industrial Dehumidifier</option>
             <option value="Desiccant Dehumidifier">Desiccant Dehumidifier</option>
             <option value="Ultrasonic Humidifier">Ultrasonic Humidifier</option>
@@ -356,7 +356,8 @@ const ADDProductForm = () => {
         </button>
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-primary me-2"
+          style={{backgroundColor:"red"}}
           onClick={() => navigate('/')}
         >
           Exit
