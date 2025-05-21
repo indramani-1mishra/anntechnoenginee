@@ -4,16 +4,13 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-// Initial empty form values including all possible fields
 const initialFormData = {
   category: '',
-  price: '',
   minOrderQty: '',
   features: '',
   image: null,
-  name:"",
-  
-  // Portable Dehumidifier fields
+  name: '',
+  // All your field keys...
   make: '',
   model: '',
   dehumidifyingCapacity: '',
@@ -31,7 +28,6 @@ const initialFormData = {
   productDimensions: '',
   qualityApproval: '',
 
-  // Desiccant Dehumidifier fields
   processAirFlow: '',
   reactivationAirFlow: '',
   appliedTemperature: '',
@@ -42,7 +38,6 @@ const initialFormData = {
   dimension: '',
   weight: '',
 
-  // Ultrasonic Humidifier fields
   humidificationCapacity: '',
   powerInput: '',
   airVolume: '',
@@ -54,7 +49,7 @@ const initialFormData = {
   wayOfWater: '',
   waterQualityRequired: '',
   dimensions: '',
-    // Ceiling Mounted Dehumidifier fields
+
   ceilingMake: '',
   ceilingModel: '',
   ceilingDehumidificationCapacity: '',
@@ -71,7 +66,6 @@ const initialFormData = {
   ceilingWaterTankCapacity: '',
   ceilingProductDimensions: '',
   ceilingQualityApproval: '',
-
 };
 
 const categoryFields = {
@@ -171,28 +165,27 @@ const categoryFields = {
 
 };
 
+
 const ADDProductForm = () => {
   const [formData, setFormData] = useState(initialFormData);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
-  // Reset form and set category on change
   const handleCategoryChange = (e) => {
     const category = e.target.value;
     setFormData({
       ...initialFormData,
       category,
     });
-    if (fileInputRef.current) fileInputRef.current.value = null; // reset file input
+    if (fileInputRef.current) fileInputRef.current.value = null;
   };
 
   const handleChange = (e) => {
     const { name, value, files, type } = e.target;
-
     if (type === 'file') {
       setFormData((prev) => ({
         ...prev,
-        [name]: files[0],
+        [name]: files, // Store FileList for multiple images
       }));
     } else {
       setFormData((prev) => ({
@@ -203,72 +196,63 @@ const ADDProductForm = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  if (!formData.category) {
-    toast.error('Please select a category first.');
-    return;
-  }
-
-  const form = new FormData();
-
-  // 1. Get the list of technical field names for the selected category
-  const technicalKeys = categoryFields[formData.category].map(f => f.name);
-
-  // 2. Collect those fields into an object
-  const technicalSpecs = {};
-  technicalKeys.forEach(key => {
-    if (formData[key]) {
-      technicalSpecs[key] = formData[key];
+    e.preventDefault();
+    if (!formData.category) {
+      toast.error('Please select a category first.');
+      return;
     }
-  });
 
-  // 3. Append common fields
-  form.append('category', formData.category);
-  form.append('price', formData.price);
-  form.append('minOrderQty', formData.minOrderQty || '');
-  form.append('name', formData.name || '');
+    const form = new FormData();
+    const technicalKeys = categoryFields[formData.category].map((f) => f.name);
+    const technicalSpecs = {};
 
-  // 4. Convert features to array and append as JSON
-  const featuresArray = formData.features
-    .split(',')
-    .map(f => f.trim())
-    .filter(f => f);
-  form.append('features', JSON.stringify(featuresArray));
-
-  // 5. Append technical specifications as JSON
-  form.append('technicalSpecs', JSON.stringify(technicalSpecs));
-
-  // 6. Append image if provided
-  if (formData.image) {
-    form.append('image', formData.image);
-  }
-
-  // 7. Submit the form
-  try {
-   const response= await axios.post(
-      'https://technoengnearbackend.onrender.com/api/v1/products',
-      form,
-      {
-        headers: { 'Content-Type': 'multipart/form-data' },
-        withCredentials: true,
+    technicalKeys.forEach((key) => {
+      if (formData[key]) {
+        technicalSpecs[key] = formData[key];
       }
-    );
-    toast.success('Product uploaded successfully!');
-    console.log(response);
-    setFormData(initialFormData);
-    if (fileInputRef.current) fileInputRef.current.value = null;
-   // navigate('/');
-  } catch (error) {
-    console.error(error);
-    toast.error('Error uploading product');
-  }
-};
+    });
 
+    form.append('category', formData.category);
+    form.append('minOrderQty', formData.minOrderQty || '');
+    form.append('name', formData.name || '');
+    form.append('price', formData.price || '');
+
+    const featuresArray = formData.features
+      .split(',')
+      .map((f) => f.trim())
+      .filter((f) => f);
+    form.append('features', JSON.stringify(featuresArray));
+    form.append('technicalSpecs', JSON.stringify(technicalSpecs));
+
+    // ✅ Append multiple images
+    if (formData.image && formData.image.length > 0) {
+      for (let i = 0; i < formData.image.length; i++) {
+        form.append('images', formData.image[i]);
+      }
+    }
+
+    try {
+      const response = await axios.post(
+        'https://technoengnearbackend.onrender.com/api/v1/products',
+        form,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+          withCredentials: true,
+        }
+      );
+      toast.success('Product uploaded successfully!');
+      console.log(response);
+      setFormData(initialFormData);
+      if (fileInputRef.current) fileInputRef.current.value = null;
+    } catch (error) {
+      console.error(error);
+      toast.error('Error uploading product');
+    }
+  };
 
   return (
     <div className="container">
-     
-      <form onSubmit={handleSubmit} className='formv'>
+      <form onSubmit={handleSubmit} className="formv">
         <div className="form-group">
           <label className="form-label">Category</label>
           <select
@@ -280,14 +264,13 @@ const ADDProductForm = () => {
           >
             <option value="">Select Category</option>
             <option value="Dehumidifires">Dehumidifiers</option>
-             <option value="Industrial Dehumidifier">Industrial Dehumidifier</option>
+            <option value="Industrial Dehumidifier">Industrial Dehumidifier</option>
             <option value="Desiccant Dehumidifier">Desiccant Dehumidifier</option>
             <option value="Ultrasonic Humidifier">Ultrasonic Humidifier</option>
             <option value="Ceiling Mounted Dehumidifier">Ceiling Mounted Dehumidifier</option>
           </select>
         </div>
 
-        {/* Render category specific fields */}
         {formData.category &&
           categoryFields[formData.category].map((field) => (
             <div className="form-group" key={field.name}>
@@ -302,19 +285,6 @@ const ADDProductForm = () => {
               />
             </div>
           ))}
-
-        {/* Common fields */}
-        <div className="form-group">
-          <label className="form-label">Price</label>
-          <input
-            type="number"
-            name="price"
-            value={formData.price}
-            onChange={handleChange}
-            className="form-control"
-            required
-          />
-        </div>
 
         <div className="form-group">
           <label className="form-label">Minimum Order Quantity</label>
@@ -340,7 +310,7 @@ const ADDProductForm = () => {
         </div>
 
         <div className="form-group">
-          <label className="form-label">Image</label>
+          <label className="form-label">Images</label>
           <input
             type="file"
             name="image"
@@ -348,6 +318,7 @@ const ADDProductForm = () => {
             ref={fileInputRef}
             onChange={handleChange}
             accept="image/*"
+            multiple
           />
         </div>
 
@@ -357,7 +328,7 @@ const ADDProductForm = () => {
         <button
           type="button"
           className="btn btn-primary me-2"
-          style={{backgroundColor:"red"}}
+          style={{ backgroundColor: 'red' }}
           onClick={() => navigate('/')}
         >
           Exit

@@ -19,7 +19,7 @@ export default function Reuseablecompont({ data }) {
         data.map((item) => (
           <div key={item._id} className='itemcontainer' onClick={() => onclickhandler(item._id)}>
             <div className='photo'>
-              <img src={item.image} alt={item.name} width="200" loading='lazy' />
+              <img src={item.image||item.images[0]} alt={item.name} width="200" loading='lazy' />
             </div>
 
             <div className='details'>
@@ -32,7 +32,7 @@ export default function Reuseablecompont({ data }) {
                   : item.name}
               </p>
 
-              <p>Price: ₹{item.price}</p>
+            
             </div>
           </div>
         ))

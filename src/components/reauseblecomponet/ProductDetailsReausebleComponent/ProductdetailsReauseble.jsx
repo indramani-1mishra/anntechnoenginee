@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { VscCallOutgoing } from "react-icons/vsc";
 import { MdAddCall, MdEmail } from 'react-icons/md';
 import './productdetails.css';
@@ -12,38 +12,38 @@ function formatLabel(key) {
 }
 
 export default function ProductdetailsReusable({ product, onclickhandler1 }) {
+  const [bigimage,setbigimage]= useState(product.images[0]);
   return (
     <div className="product-details-container">
-      <div className="product-image">
-        <img src={product.image} alt={product.name} loading="lazy" />
-      </div>
+      {product.image?  <div className="product-image">
+       <img src={product.image} alt={product.name} loading="lazy" />
+      
+      </div>:<div className='product-image1'>
+          <div className='big-image'>
+           <img src={bigimage} alt={product.name} loading="lazy" />
+          </div>
+          <div className='small-image'>
+           {product.images.map((image)=>{
+            return <div className='image-con'><img src={image} alt={product.name} loading="lazy" onClick={()=>setbigimage(image)} key={image} /></div>
+           })}
+          </div>
+
+      </div>}
 
       <div className="details-container">
         <div className="product-info">
           <h2>{product.name}</h2>
           <p className="spec-row"><strong>Category:</strong> {product.category}</p>
           <p className="spec-row"><strong>Brand:</strong> {product.brand}</p>
-          <p className="spec-row"><strong>Model Type:</strong> {product.modelType}</p>
-          <p className="spec-row"><strong>Voltage:</strong> {product.voltage}</p>
-          <p className="spec-row"><strong>Application:</strong> {product.application}</p>
-          <p className="spec-row"><strong>Material:</strong> {product.material}</p>
           <p className="spec-row"><strong>Min. Order Qty:</strong> {product.minOrderQty}</p>
-          <p className="spec-row"><strong>Capacity:</strong> {product.capacity}</p>
-          <p className="spec-row"><strong>Usage:</strong> {product.usage}</p>
-          <p className="spec-row"><strong>Price:</strong> ₹{product.price}</p>
 
-          <p><strong>Features:</strong></p>
-          <ul>
-            {Array.isArray(product.features)
-              ? product.features.map((feat, i) => <li key={i}>{feat}</li>)
-              : <li>{product.features}</li>
-            }
-          </ul>
+
+          
         </div>
 
         {product.technicalSpecs && Object.keys(product.technicalSpecs).length > 0 && (
           <div className="technical-specs">
-            <h3>Technical Specifications</h3>
+         
             <div className="spec-list">
               {Object.entries(product.technicalSpecs).map(([key, value]) => (
                 <p className="spec-row" key={key}>
@@ -54,7 +54,15 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
             </div>
           </div>
         )}
+        <p><strong>Features:</strong></p>
+          <ul>
+            {Array.isArray(product.features)
+              ? product.features.map((feat, i) => <li key={i}>{feat}</li>)
+              : <li>{product.features}</li>
+            }
+          </ul>
       </div>
+      
 
       <div className="action-buttons">
         <button className="buy-now-btn" onClick={onclickhandler1}>
