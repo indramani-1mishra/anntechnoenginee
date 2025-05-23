@@ -7,6 +7,7 @@ body {
   padding: 0;
   background: linear-gradient(to bottom right, #c2f0f7, #a3e4f7);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: lowercase;
 }
 .addproductmain {
   max-width: 1000px;
@@ -48,7 +49,7 @@ h2 {
   margin-bottom: 15px;
   box-shadow: 0px 0px 5px 0px black;
   transition: all 0.3s ease;
-  text-transform: capitalize;
+  
 }
 
 .form-control:focus {

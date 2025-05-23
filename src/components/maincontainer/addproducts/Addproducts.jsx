@@ -49,22 +49,10 @@ const initialFormData = {
   waterQualityRequired: '',
   dimensions: '',
 
-  ceilingMake: '',
-  ceilingModel: '',
-  ceilingDehumidificationCapacity: '',
-  ceilingDehumidifyingCapacityKgHr: '',
-  ceilingAirFlow: '',
-  ceilingHumiditySetting: '',
-  ceilingWorkingTemp: '',
-  ceilingPowerSupply: '',
-  ceilingPowerConsumption: '',
-  ceilingRatedCurrent: '',
-  ceilingCompressorType: '',
-  ceilingNoiseLevel: '',
-  ceilingRefrigerant: '',
-  ceilingWaterTankCapacity: '',
-  ceilingProductDimensions: '',
-  ceilingQualityApproval: '',
+dehumidificationCapacity: '',
+dehumidifyingCapacityKgHr: '',
+
+
 
   // ✅ New fields for Electric Humidifier:
   evaporationCapacity: '',

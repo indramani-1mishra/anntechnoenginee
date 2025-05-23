@@ -33,7 +33,7 @@ export default function Productdetails() {
     console.log("hello"+showenquiry);
     setshowenquiry(true);
     console.log(showenquiry);
-    console.log(product.image);
+    console.log(product.images[0]);
     
     
 
@@ -68,7 +68,7 @@ export default function Productdetails() {
       <h3 className="related-title">Related Products</h3>
       
       <Reuseablecompont data={relatedProducts} />
-      {showenquiry && <ProductInquiryCard  image={product.image} name={product.name} model={product.modelType} price={product.price} onSubmit={(e)=>onsubmithandler(e)}/> }
+      {showenquiry && <ProductInquiryCard  image={product.images[0]} name={product.name} model={product.brand}  onSubmit={(e)=>onsubmithandler(e)}/> }
     </>
   );
 }

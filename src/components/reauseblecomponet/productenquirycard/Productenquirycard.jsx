@@ -4,7 +4,7 @@ import SearchContext from "../../../context/context";
 import { IoClose } from "react-icons/io5";
 //import { LuIndianRupee } from "react-icons/lu";
 
-const ProductInquiryCard = ({ image, price, model, onSubmit,name }) => {
+const ProductInquiryCard = ({ image,  model, onSubmit,name }) => {
     const { setshowenquiry,showenquiry,}=useContext(SearchContext);
   
   return (
@@ -14,12 +14,12 @@ const ProductInquiryCard = ({ image, price, model, onSubmit,name }) => {
             
       <div className="product-left">
         <img src={image} alt="image" className="product-img" />
-        <p className="product-price">{price}</p>
+        
         <ul className="product-model-list">
-          <li><strong>Model Type:</strong> {model}</li>
+          <li><strong>Brand:</strong> {model}</li>
          
           <li><strong>name</strong> {name}</li>
-          <li><strong>price</strong> {price}</li>
+         
         </ul>
       </div>
 
