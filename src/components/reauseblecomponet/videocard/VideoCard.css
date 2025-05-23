@@ -8,6 +8,7 @@
   text-align: center;
   margin: 1rem;
   height: 350px;
+
 }
 
 .thumbnail-wrapper {
@@ -81,8 +82,9 @@
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  margin: 1rem;
+  margin: 0.4rem 0rem;
   height: 350px;
-  
+
+
 }
 }
