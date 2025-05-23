@@ -14,6 +14,8 @@ import Footerbanner from '../../../footer/foterbanner.jsx/footerbanner';
 import SupplierInfoModal from '../../../footer/foterbanner.jsx/Supplayerinfomodel';
 import ADDProductForm from '../../addproducts/Addproducts';
 import Ceiling_Mounted_Dehumidifier from '../perfume/perfume';
+import Refrigerated_Type_Compressed_Air_Dryer from '../shoes/shoes';
+import Electric_Humidifier from '../toys/toys';
 
 // Lazy loaded components
 
@@ -45,8 +47,8 @@ export default function Routers() {
         <Route path="/Industrial_Dehumidifier" element={<Industrial_Dehumidifier />} />
         <Route path="/perfume" element={<Perfume />} />
         <Route path="/jewelry" element={<Jewelry />} />
-        <Route path="/shoes" element={<Shoes />} />
-        <Route path="/toys" element={<Toys />} />
+        <Route path="/Refrigerated_Type_Compressed_Air_Dryer" element={<Refrigerated_Type_Compressed_Air_Dryer/>} />
+        <Route path="/Electric_Humidifier" element={<Electric_Humidifier/>} />
         <Route path="/Eyewear" element={<Eyewear />} />
         <Route path="/all" element={<All />} />
         <Route path="/productdetails/:id" element={<Productdetails />} />

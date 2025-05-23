@@ -9,19 +9,23 @@ import { CiStar } from "react-icons/ci";
     { name: "Contact Us", path: "/sellerinfo" },
      { name: "Testimonial", path: "/Testimonial" },
       { name: "Sitemap", path: "/Sitemap" },
+      { name: "others", path: "/others" },
   ];
  export const infoLinks =[
     { name: "Dehumidifires", path: "/Dehumidifires" },
     { name: "Ultrasonic Humidifier", path: "/Ultrasonic_Humidifier" },
     { name: "Desiccant Dehumidifier", path: "/Desiccant_Dehumidifier" },
-    { name: "Industrial Dehumidifier", path: "/Industrial_Dehumidifier" }
+    { name: "Industrial Dehumidifier", path: "/Industrial_Dehumidifier" },
+    { name: "Refrigerated Type Compressed Air Dryer", path: "/Refrigerated_Type_Compressed_Air_Dryer" },
+
   ]
 
    export const infoLinks1 =[
     { name: "Humidifier", path: "/Humidifier" },
     { name: "Industrial Dehumidifiers", path: "/Industrial_Dehumidifier" },
     { name: "Ceiling Mounted Dehumidifier", path: "/Ceiling_Mounted_Dehumidifier" },
-    { name: "Ultrasonic Industrial Humidifier", path: "/Ultrasonic_Humidifier" }
+    { name: "Ultrasonic Industrial Humidifier", path: "/Ultrasonic_Humidifier" },
+   { name: "Electric Humidifier", path: "/Electric_Humidifier" },
   ]
   
 
