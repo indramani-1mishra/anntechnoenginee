@@ -140,6 +140,7 @@ const categoryFields = {
  'Desiccant Dehumidifier': [
   { label: 'Make', name: 'make', type: 'text' },
   { label: 'Model', name: 'model', type: 'text' },
+   { label: 'Name', name: 'name', type: 'text', required: true },
   { label: 'Dehumidifying Capacity (20°C, 60%)', name: 'dehumidifyingCapacity', type: 'text' },
   { label: 'Process Air Flow', name: 'processAirFlow', type: 'text' },
   { label: 'Reactivation Air Flow', name: 'reactivationAirFlow', type: 'text' },
