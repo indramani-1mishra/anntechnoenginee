@@ -4,11 +4,12 @@ import './userdetails.css';
 import { Link } from 'react-router-dom';
 import SearchContext from '../../../context/context';
 import withLogin from '../../hoc/withloggin/Withloggin';
+import { toast } from 'react-toastify';
 
  function Userdetail() {
   const [message, setMessage] = useState('');
   const [userdata, setuserdata] = useState({});
-   const {setname,userid}= useContext(SearchContext);
+   const {setname,userid,setisloggedin}= useContext(SearchContext);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -36,6 +37,24 @@ import withLogin from '../../hoc/withloggin/Withloggin';
 
     fetchUserDetails();
   }, []);
+   const onclickhandler3 = async()=>{
+      try{
+         const response =  await axios.get("https://technoengnearbackend.onrender.com/api/v1/user/logout", {
+        withCredentials: true  // ✅ Required to clear cookie
+       });
+      // console.log(response);
+       toast.success(response?.data?.message);
+       setisloggedin(false);
+       localStorage.removeItem("loggedinStatus");
+
+      }
+      catch(error){
+        console.log(error);
+        toast.error("error in logout please try later");
+      
+      }
+   }
+
 
   return (
     <div className='userdetails-container'>
@@ -68,7 +87,7 @@ import withLogin from '../../hoc/withloggin/Withloggin';
             <span className="label">Role:</span>
             <span className="value">{userdata.role}</span>
           </div>
-          <button className="edit-btn">Edit Profile</button>
+          <button className="edit-btn" onClick={onclickhandler3}>logout</button>
         </div>
       )}
     </div>
