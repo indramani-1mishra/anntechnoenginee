@@ -1,34 +1,38 @@
 import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import './userdetails.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SearchContext from '../../../context/context';
 import withLogin from '../../hoc/withloggin/Withloggin';
 import { toast } from 'react-toastify';
 
- function Userdetail() {
+function Userdetail() {
   const [message, setMessage] = useState('');
-  const [userdata, setuserdata] = useState({});
-   const {setname,userid,setisloggedin}= useContext(SearchContext);
+  const [userdata, setUserdata] = useState({});
+  const { setname, userid, setisloggedin } = useContext(SearchContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    if (!userid) {
+      setMessage("User not authorized, please login first.");
+      return;
+    }
+
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get(`https://technoengnearbackend.onrender.com/api/v1/users/${userid}`, {
-          withCredentials: true
-        });
+        const response = await axios.get(
+          `https://technoengnearbackend.onrender.com/api/v1/users/${userid}`,
+          { withCredentials: true }
+        );
 
-        if (!response) {
+        if (response?.data?.status === 401 || !response?.data?.data) {
           setMessage("User not authorized, please login first.");
-            console.log(response+"response");
-
         } else {
           const data = response.data.data;
-          console.log(response+"response");
-          console.log(data+"data");
-          setuserdata(data);
+          setUserdata(data);
           setname(data.name);
         }
+
       } catch (error) {
         console.log(error);
         setMessage("Error fetching user. Please login first.");
@@ -36,25 +40,25 @@ import { toast } from 'react-toastify';
     };
 
     fetchUserDetails();
-  }, []);
-   const onclickhandler3 = async()=>{
-      try{
-         const response =  await axios.get("https://technoengnearbackend.onrender.com/api/v1/user/logout", {
-        withCredentials: true  // ✅ Required to clear cookie
-       });
-      // console.log(response);
-       toast.success(response?.data?.message);
-       setisloggedin(false);
-       localStorage.removeItem("loggedinStatus");
+  }, [userid]);
 
-      }
-      catch(error){
-        console.log(error);
-        toast.error("error in logout please try later");
-      
-      }
-   }
+  const handleLogout = async () => {
+    try {
+      const response = await axios.get(
+        "https://technoengnearbackend.onrender.com/api/v1/user/logout",
+        { withCredentials: true }
+      );
 
+      toast.success(response?.data?.message);
+      setisloggedin(false);
+      localStorage.removeItem("loggedinStatus");
+      navigate("/login");
+
+    } catch (error) {
+      console.log(error);
+      toast.error("Error in logout, please try again later.");
+    }
+  };
 
   return (
     <div className='userdetails-container'>
@@ -73,7 +77,7 @@ import { toast } from 'react-toastify';
           <h2>My Profile</h2>
           <div className="detail-row">
             <span className="label">Name:</span>
-            <span className="value">{userdata.name} </span>
+            <span className="value">{userdata.name}</span>
           </div>
           <div className="detail-row">
             <span className="label">Email:</span>
@@ -87,7 +91,7 @@ import { toast } from 'react-toastify';
             <span className="label">Role:</span>
             <span className="value">{userdata.role}</span>
           </div>
-          <button className="edit-btn" onClick={onclickhandler3}>logout</button>
+          <button className="edit-btn" onClick={handleLogout}>Logout</button>
         </div>
       )}
     </div>
