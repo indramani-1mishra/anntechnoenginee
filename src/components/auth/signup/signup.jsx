@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './signup.css';
 import axios from 'axios';
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
+import { FaRegEye, FaRegEyeSlash, FaTowerBroadcast } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Signup() {
-  const [firstname, setfirstname] = useState('');
-  const [lastname, setlastname] = useState('');
-  const [phonenumber, setphonenumber] = useState('');
+  const [name, setfirstname] = useState('');
+
+  const [phoneNumber, setphonenumber] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const [message, setmessage] = useState('');
@@ -18,20 +19,21 @@ export default function Signup() {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://mytrabackendclone-3.onrender.com/api/v1/users', {
-        firstname,
-        lastname,
+      const response = await axios.post(' https://technoengnearbackend.onrender.com/api/v1/users/', {
+        name,
         email,
-        phonenumber,
+        phoneNumber,
         password,
       });
-
+       
+      console.log(response.data);
+      toast.success("User created successfully!");
       setmessage("User created successfully!");
 
       // Reset form fields
       setemail('');
       setfirstname('');
-      setlastname('');
+     
       setpassword('');
       setphonenumber('');
 
@@ -52,21 +54,15 @@ export default function Signup() {
   return (
     <form onSubmit={handleonsubmit} className='form1'>
       <div className='inputfield'>
-        <label>Enter first name</label>
+        <label>Enter  name</label>
         <input
           type='text'
-          value={firstname}
+          value={name}
           onChange={(e) => setfirstname(e.target.value)}
           required
         />
 
-        <label>Enter last name</label>
-        <input
-          type='text'
-          value={lastname}
-          onChange={(e) => setlastname(e.target.value)}
-          required
-        />
+       
 
         <label>Enter email</label>
         <input
@@ -79,7 +75,7 @@ export default function Signup() {
         <label>Enter phone number</label>
         <input
           type='number'
-          value={phonenumber}
+          value={phoneNumber}
           onChange={(e) => setphonenumber(e.target.value)}
           required
         />

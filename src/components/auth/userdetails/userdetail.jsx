@@ -8,21 +8,25 @@ import withLogin from '../../hoc/withloggin/Withloggin';
  function Userdetail() {
   const [message, setMessage] = useState('');
   const [userdata, setuserdata] = useState({});
-   const {setname}= useContext(SearchContext);
+   const {setname,userid}= useContext(SearchContext);
 
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("https://mytrabackendclone-3.onrender.com/api/v1/users", {
+        const response = await axios.get(`https://technoengnearbackend.onrender.com/api/v1/users/${userid}`, {
           withCredentials: true
         });
 
         if (!response) {
           setMessage("User not authorized, please login first.");
+            console.log(response+"response");
+
         } else {
           const data = response.data.data;
+          console.log(response+"response");
+          console.log(data+"data");
           setuserdata(data);
-          setname(data.firstname+" "+data.lastname);
+          setname(data.name);
         }
       } catch (error) {
         console.log(error);
@@ -50,7 +54,7 @@ import withLogin from '../../hoc/withloggin/Withloggin';
           <h2>My Profile</h2>
           <div className="detail-row">
             <span className="label">Name:</span>
-            <span className="value">{userdata.firstname} {userdata.lastname}</span>
+            <span className="value">{userdata.name} </span>
           </div>
           <div className="detail-row">
             <span className="label">Email:</span>
@@ -58,7 +62,7 @@ import withLogin from '../../hoc/withloggin/Withloggin';
           </div>
           <div className="detail-row">
             <span className="label">Phone Number:</span>
-            <span className="value">{userdata.phonenumber}</span>
+            <span className="value">{userdata.phoneNumber}</span>
           </div>
           <div className="detail-row">
             <span className="label">Role:</span>

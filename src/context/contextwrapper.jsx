@@ -5,9 +5,20 @@ export default function Contextwrapper({ children }) {
   const [input, setInput] = useState('');
  const [showemail,setshowemail]=useState(false);
  const[showenquiry,setshowenquiry]=useState(false);
+ const [userid,setuserid]=useState('');
+
   
 
-  const [isloggedin, setisloggedin] = useState(false);
+ const [isloggedin, setisloggedin] = useState(() => {
+  try {
+    const value = localStorage.getItem("loggedinStatus");
+    return value ? JSON.parse(value) : false;
+  } catch (error) {
+    console.error("Error parsing loggedinStatus from localStorage:", error);
+    return false;
+  }
+});
+
   const [count, setcount] = useState(() => {
     if(isloggedin)
     {
@@ -44,6 +55,8 @@ export default function Contextwrapper({ children }) {
       isloggedin, setisloggedin,
       showemail,setshowemail,
       setshowenquiry,showenquiry,
+      userid,setuserid,
+      
     }}>
       {children}
     </SearchContext.Provider>

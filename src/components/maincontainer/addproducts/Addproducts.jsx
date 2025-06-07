@@ -300,8 +300,8 @@ const ADDProductForm = () => {
       setFormData(initialFormData);
       if (fileInputRef.current) fileInputRef.current.value = null;
     } catch (error) {
-      console.error(error);
-      toast.error('Error uploading product');
+      //console.error(error.response.data.message);
+      toast.error(error.response.data.message?error.response.data.message:'Error uploading product');
     }
   };
 

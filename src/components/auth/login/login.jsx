@@ -4,15 +4,16 @@ import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import SearchContext from '../../../context/context';
+import { toast } from 'react-toastify';
 
 export default function Login() {
   const [email, setEmail] = useState('');
-  const [phonenumber, setPhonenumber] = useState('');
+ // const [phonenumber, setPhonenumber] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(true);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const {setisloggedin}=useContext(SearchContext);
+  const {setisloggedin,setuserid ,}=useContext(SearchContext);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);
@@ -24,21 +25,26 @@ export default function Login() {
 
    
 
-    if (!email && !phonenumber) {
+    if (!email) {
       setMessage("Please enter either email or phone number.");
       return;
     }
 
     try {
       const res = await axios.post(
-        'https://mytrabackendclone-3.onrender.com/api/v1/login',
-        { email, phonenumber, password },
+        'https://technoengnearbackend.onrender.com/api/v1/user/login',
+        { email,  password },
         { withCredentials: true } // ✅ important for cookie to work
       );
-
-   
+ 
+      setuserid(res.data.userid);
+      //console.log(res.data+"data");
+     
        setisloggedin(true);
+  localStorage.setItem("loggedinStatus", JSON.stringify(true));
+       
       setMessage('Login successful! Redirecting...');
+      toast.success(res.data.message);
       setTimeout(() => navigate('/'), 1000);
     } catch (err) {
       console.error("❌ Login failed:", err);
@@ -62,15 +68,7 @@ export default function Login() {
         />
       </div>
 
-      <div className="login-field">
-        <label>Phone Number</label>
-        <input
-          type="text"
-          value={phonenumber}
-          onChange={(e) => setPhonenumber(e.target.value)}
-          placeholder="Enter phone number"
-        />
-      </div>
+      
 
       <div className="login-field">
         <label>Password</label>

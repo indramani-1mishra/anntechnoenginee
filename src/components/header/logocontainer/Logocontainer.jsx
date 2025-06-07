@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineShoppingBag } from "react-icons/md";
-import { CiHeart } from "react-icons/ci";
+import { CiHeart, CiMail } from "react-icons/ci";
 import './logo.css';
 import Logincontainer from '../logincontainer/logincontainer';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 export default function Logocontainer() {
   const [showLogin, setShowLogin] = useState(false);
   const navigate = useNavigate();
-  const { count } = useContext(SearchContext);
+  const { count ,isloggedin,setshowemail , } = useContext(SearchContext);
 
   const onclickhandler = () => {
     navigate('/carts');
@@ -25,7 +25,7 @@ export default function Logocontainer() {
        
         
       >
-        <span><FaRegUser style={{ fontSize: "20px" }} /></span>
+        <span><FaRegUser style={{ fontSize: "20px" }} onClick={()=>navigate('/userdetails')} /></span>
         <span>Profile</span>
         {showLogin && (
           <div className="login-popup">
@@ -35,9 +35,16 @@ export default function Logocontainer() {
       </div>
 
       {/* Wishlist */}
-      <div className='logos' onClick={()=>navigate('/Addproducts')}>
-        <span><IoMdAddCircleOutline style={{ fontSize: "20px" }} /></span>
+      <div className='logos' >
+       {
+         isloggedin  ? <>
+          <span><IoMdAddCircleOutline style={{ fontSize: "20px" }}  onClick={()=>navigate('/Addproducts')}/></span>
         <span>Add products</span>
+         </>:<>
+           <span><CiMail style={{ fontSize: "20px" }}  onClick={()=>setshowemail(true)}/></span>
+        <span>send Enquiry</span>
+         </>
+       }
       </div>
 
       {/* Cart/Bag */}
