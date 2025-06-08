@@ -1,42 +1,62 @@
 export const menuData = [
   {
     category: "Dehumidifiers",
-    items: [
-      { name: "Portable Room Dehumidifier", path: "" },
-      { name: "Compact Dehumidifier ateD500 (50 L/Day)", path: "" },
-      { name: "Dehumidifier (90 L/Day)", path: "" },
-      { name: "Compact Dehumidifier ateD600 (60 L/Day)", path: "" },
-      { name: "AteD500 Dehumidifier", path: "" }
-    ]
+    items : [
+  { name: "Portable Dehumidifier", path: "" },
+  { name: "Semi Commercial Dehumidifier", path: "" },
+  { name: "Commercial Dehumidifier", path: "" },
+  { name: "Portable Commercial Dehumidifier", path: "" },
+  { name: "Pharma Dehumidifier", path: "" }
+],
+
   },
   {
     category: "Industrial Dehumidifier",
-    items: [
-      { name: "Industrial Refrigerant Dehumidifier (90 L/Day)", path: "" },
-      { name: "Portable Dehumidifier SS 304 ateD600SS", path: "" },
-      { name: "Storage Room Dehumidifier", path: "" },
-      { name: "Industrial Refrigerant Dehumidifier ateD800 (80 L/Day)", path: "" },
-      { name: "Industrial Refrigerant Dehumidifier (150 L/Day)", path: "" }
-    ]
+     items :[
+  { name: "Portable Industrial Dehumidifier", path: "" },
+  { name: "Industrial Dehumidifier", path: "" },
+  { name: "Industrial Portable Dehumidifier", path: "" },
+  { name: "Industrial Refrigerated Dehumidifier", path: "" },
+  { name: "Wearhouse Dehumidifier", path: "" },
+  { name: "Wearhouse Industrial Dehumidifier", path: "" },
+  { name: "Wearhouse Industrial", path: "" },
+  { name: "Pharmaceutical Dehumidifier", path: "" }
+],
+
+  },
+   {
+    category: "Ceiling Mounted Dehumidifier",
+    items : [
+  { name: "Duct & Ceiling Mounted Dehumidifier", path: "" },
+  { name: "Wall Mounted Dehumidifier", path: "" },
+  { name: "Ceiling Mounted Dehumidifier", path: "" },
+  { name: "Ceiling Mounted Dehumidifier", path: "" } // Duplicate name as shown in image
+],
+
   },
   {
     category: "Desiccant Dehumidifier",
-    items: [
-      { name: "Ecodry Desiccant Dehumidifier", path: "" },
-      { name: "Ecodry Desiccant Dehumidifier ateDD450", path: "" },
-      { name: "Compact Desiccant Dehumidifier ateDD550", path: "" },
-      { name: "Desiccant Dehumidifier (1000 CMH)", path: "" },
-      { name: "Industrial Desiccant Dehumidifier (1500 CMH)", path: "" }
-    ]
+    items : [
+  { name: "Cold Store Dehumidifier", path: "" },
+  { name: "Desiccant Dehumidifier", path: "" },
+  { name: "Pharmaceutical Desiccant Dehumidifier", path: "" },
+  { name: "Industrial Desiccant Dehumidifier", path: "" }
+],
+
   },
+
   {
     category: "Ultrasonic Humidifier",
-    items: [
-      { name: "Ultrasonic Mist Maker Fogger Humidifier", path: "" },
-      { name: "Mushroom Ultrasonic Industrial Humidifier", path: "" },
-      { name: "Cool Mist Ultrasonic Humidifier", path: "" },
-      { name: "Industrial Ultrasonic Humidifier ate20UH", path: "" },
-      { name: "30 LPH Industrial Ultrasonic Humidifier", path: "" }
-    ]
+    items : [
+  { name: "Ultrasonic Humidifier", path: "" },
+  { name: "Industrial Ultrasonic Humidifier", path: "" },
+  { name: "Mushroom Humidifier", path: "" },
+  { name: "Ultrasonic Humidifier 5LPH", path: "" },
+  { name: "Industrial Ultrasonic Humidifier 10LPH", path: "" },
+  { name: "Industrial Ultrasonic Humidifier 25LPH", path: "" },
+  { name: "30 LPH Ultrasonic Humidifier", path: "" },
+  { name: "SS304 Ultrasonic Humidifier", path: "" }
+],
+
   }
 ];

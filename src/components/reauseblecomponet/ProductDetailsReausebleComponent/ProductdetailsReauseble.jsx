@@ -35,10 +35,7 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
           <h2>{product.name}</h2>
           <p className="spec-row"><strong>Category:</strong> {product.category}</p>
           <p className="spec-row"><strong>Brand:</strong> {product.brand}</p>
-          <p className="spec-row"><strong>Min. Order Qty:</strong> {product.minOrderQty}</p>
-
-
-          
+          <p className="spec-row"><strong>Min. Order Qty:</strong> {product.minOrderQty}</p> 
         </div>
 
         {product.technicalSpecs && Object.keys(product.technicalSpecs).length > 0 && (

@@ -13,7 +13,7 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(true);
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
-  const {setisloggedin,setuserid ,}=useContext(SearchContext);
+  const {setisloggedin,setuserid}=useContext(SearchContext);
 
   const togglePassword = () => {
     setShowPassword(!showPassword);

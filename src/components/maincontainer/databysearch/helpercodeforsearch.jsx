@@ -1,29 +1,40 @@
+
 export const categories = [
-  "Ultrasonic Humidifier",
-  "Ultrasonic Mist Maker Fogger Humidifier",
-  "Mushroom Ultrasonic Industrial Humidifier",
-  "Cool Mist Ultrasonic Humidifier",
-  "Industrial Ultrasonic Humidifier ate20UH",
-  "30 LPH Industrial Ultrasonic Humidifier",
-  
   "Dehumidifiers",
-  "Portable Room De humidifier",
-  "Compact Dehumidifier ateD500 50 L/Day",
-  "De humidifier 90 L/Day",
-  "Compact Dehumidifier 60 L Day ateD600",
-  "AteD500 Dehumidifier",
-  
-  "Desiccant Dehumidifier",
-  "Ecodry Desiccant Dehumidifier",
-  "Ecodry Desiccant Dehumidifier ateDD450",
-  "Compact Desiccant Dehumidifier ateDD550",
-  "Desiccant Dehumidifier 1000CMH",
-  "Industrial Desiccant Dehumidifier 1500cmh",
-  
+  "Portable Dehumidifier",
+  "Semi Commercial Dehumidifier",
+  "Commercial Dehumidifier",
+  "Portable Commercial Dehumidifier",
+  "Pharma Dehumidifier",
+
   "Industrial Dehumidifier",
-  "Industrial Refrigerant Dehumidifier 90 L/Day",
-  "Portable Dehumidifiers SS 304 ateD600SS",
-  "Storage Room Dehumidifier",
-  "Industrial Refrigerant Dehumidifier ateD800 80 L/D",
-  "Industrial Refrigerator Dehumidifier 150 L/Day"
+  "Portable Industrial Dehumidifier",
+  "Industrial Dehumidifier",
+  "Industrial Portable Dehumidifier",
+  "Industrial Refrigerated Dehumidifier",
+  "Wearhouse Dehumidifier",
+  "Wearhouse Industrial Dehumidifier",
+  "Wearhouse Industrial",
+  "Pharmaceutical Dehumidifier",
+
+  "Ceiling Mounted Dehumidifier",
+  "Duct & Ceiling Mounted Dehumidifier",
+  "Wall Mounted Dehumidifier",
+  "Ceiling Mounted Dehumidifier",
+  "Ceiling Mounted Dehumidifier",
+
+  "Desiccant Dehumidifier",
+  "Cold Store Dehumidifier",
+  "Desiccant Dehumidifier",
+  "Pharmaceutical Desiccant Dehumidifier",
+  "Industrial Desiccant Dehumidifier",
+
+  "Ultrasonic Humidifier",
+  "Industrial Ultrasonic Humidifier",
+  "Mushroom Humidifier",
+  "Ultrasonic Humidifier 5LPH",
+  "Industrial Ultrasonic Humidifier 10LPH",
+  "Industrial Ultrasonic Humidifier 25LPH",
+  "30 LPH Ultrasonic Humidifier",
+  "SS304 Ultrasonic Humidifier"
 ];
