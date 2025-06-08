@@ -67,6 +67,7 @@ export default function Routers() {
         <Route path="/email" element={<SupplierInfoModal/>}/>
         <Route path='/Addproducts' element={<ADDProductForm/>}/>
         <Route path='/Ceiling_Mounted_Dehumidifier' element={<Ceiling_Mounted_Dehumidifier/>}/>
+        <Route path='/Electric_Humidifier' element={<Electric_Humidifier/>}/>
       </Routes>
      </MainLayout>
     </Suspense>

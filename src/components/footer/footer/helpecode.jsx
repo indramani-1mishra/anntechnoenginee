@@ -9,7 +9,7 @@ import { CiStar } from "react-icons/ci";
     { name: "Contact Us", path: "/sellerinfo" },
      { name: "Testimonial", path: "/Testimonial" },
       { name: "Sitemap", path: "/Sitemap" },
-      { name: "others", path: "/others" },
+      { name: "others", path: "/all" },
   ];
  export const infoLinks =[
     { name: "Dehumidifires", path: "/Dehumidifires" },

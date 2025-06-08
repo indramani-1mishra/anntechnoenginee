@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { VscCallOutgoing } from "react-icons/vsc";
 import { MdAddCall, MdEmail } from 'react-icons/md';
 import './productdetails.css';
-
+import { useEffect } from 'react';
 // 🔧 Function to format keys like "ceilingAirFlow" to "Ceiling Air Flow"
 function formatLabel(key) {
   return key
@@ -13,6 +13,11 @@ function formatLabel(key) {
 
 export default function ProductdetailsReusable({ product, onclickhandler1 }) {
   const [bigimage,setbigimage]= useState(product.images[0]);
+   useEffect(() => {
+    if (product.images && product.images.length > 0) {
+      setbigimage(product.images[0]);
+    }
+  }, [product]); 
   return (
     <div className="product-details-container">
       {product.image?  <div className="product-image">
