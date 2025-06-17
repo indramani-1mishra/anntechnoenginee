@@ -15,7 +15,7 @@ function Carts() {
   const { setcount } = useContext(SearchContext);
 
   useFetchCartItem({
-    url: 'https://mytrabackendclone-3.onrender.com/api/v1/cart',
+    url: 'https://technoengnearbackend.onrender.com/api/v1/like',
     setCartItems,
     setcount,
     setLoading
