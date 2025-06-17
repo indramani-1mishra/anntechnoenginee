@@ -8,6 +8,8 @@ export  function useFetchCartItem({ url, setCartItems, setcount, setLoading }) {
         const res = await axios.get(url, { withCredentials: true });
 
         const items = res.data?.data?.items || [];
+        console.log(res);
+        console.log(url);
         setCartItems(items);
         setcount(items.length);
       } catch (error) {

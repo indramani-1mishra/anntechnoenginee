@@ -6,20 +6,37 @@ import {useFetchCartItem} from '../../../customhooks/usefetchcartitem/UsefetchCa
 import CartItemList from '../../../reauseblecomponet/showcartreuseble/Showcartsreuseble';
 import Loder from '../../../reauseblecomponet/loder/Loder';
 import axios from 'axios';
+import { useEffect } from 'react';
 
 
 
-function Carts() {
+ function Carts() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const { setcount } = useContext(SearchContext);
 
-  useFetchCartItem({
+    useFetchCartItem({
     url: 'https://technoengnearbackend.onrender.com/api/v1/like',
     setCartItems,
     setcount,
     setLoading
   });
+
+  const fetchcartdata=async()=>{
+    try{
+      const response = await axios.get('https://technoengnearbackend.onrender.com/api/v1/like',{
+        withCredentials:true
+      });
+      console.log(response+"response");
+    }
+    catch(error)
+    {
+      console.log(error)
+    }
+  }
+  useEffect(()=>{
+    fetchcartdata();
+  },[]);
 
   const handleBuyNow = (item) => {
     alert(`Buying: ${item.product?.productname} (₹${item.product?.price})`);
