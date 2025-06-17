@@ -52,8 +52,8 @@ function Carts() {
           },
         }
       );
-
-      setCartItems(response.data.data.items || []);
+       console.log(JSON.stringify(response.data.data.likedProduct));
+      setCartItems(response.data.data.likedProduct || []);
       alert('Product removed');
     } catch (error) {
       console.error('Error removing product:', error.response?.data || error.message);
@@ -61,6 +61,9 @@ function Carts() {
     }
   };
 
+  useEffect(()=>{
+    fetchcartdata();
+  },[cartItems._id])
   if (loading) return <Loder />;
 
   return (

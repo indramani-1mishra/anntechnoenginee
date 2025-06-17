@@ -5,7 +5,7 @@ export default function CartItemList({ items, onBuyNow,onRemove}) {
       {items.map((item) => (
         <div className="cart-item" key={item._id}>
           <img
-            src={item.product.images[0]}
+            src={item?.product?.images[0]}
             alt={item.product?.name}
             className="cart-img"
           />
