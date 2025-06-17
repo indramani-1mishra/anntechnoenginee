@@ -20,39 +20,37 @@ export default function Login() {
   };
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-   
+  e.preventDefault();
 
-   
+  if (!email) {
+    setMessage("Please enter email.");
+    return;
+  }
 
-    if (!email) {
-      setMessage("Please enter either email or phone number.");
-      return;
-    }
+  try {
+    const res = await axios.post(
+      'https://technoengnearbackend.onrender.com/api/v1/user/login',
+      { email, password },
+      { withCredentials: true }
+    );
 
-    try {
-      const res = await axios.post(
-        'https://technoengnearbackend.onrender.com/api/v1/user/login',
-        { email,  password },
-        { withCredentials: true } // ✅ important for cookie to work
-      );
- 
-      setuserid(res.data.userid);
-      //console.log(res.data+"data");
-     
-       setisloggedin(true);
-  localStorage.setItem("loggedinStatus", JSON.stringify(true));
-       
-      setMessage('Login successful! Redirecting...');
-      toast.success(res.data.message);
-      setTimeout(() => navigate('/'), 1000);
-    } catch (err) {
-      console.error("❌ Login failed:", err);
-      setMessage(
-        err.response?.data?.message || 'Invalid credentials. Please try again.'
-      );
-    }
-  };
+    const { userid } = res.data;
+    setuserid(userid);
+    setisloggedin(true);
+
+    localStorage.setItem("loggedinStatus", "true");
+    localStorage.setItem("userid", userid);
+
+    toast.success(res.data.message || 'Login successful!');
+    setTimeout(() => navigate('/'), 1000);
+  } catch (err) {
+    console.error("Login error:", err);
+    const errMsg = err.response?.data?.message || "Invalid credentials";
+    setMessage(errMsg);
+    toast.error(errMsg);
+  }
+};
+
 
   return (
     <form onSubmit={handleLogin} className="login-form">

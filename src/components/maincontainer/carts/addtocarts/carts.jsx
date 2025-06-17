@@ -1,81 +1,67 @@
-import React, { useContext,  useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './Addtocart.css';
 import withLogin from '../../../hoc/withloggin/Withloggin';
 import SearchContext from '../../../../context/context';
-import {useFetchCartItem} from '../../../customhooks/usefetchcartitem/UsefetchCartItem';
 import CartItemList from '../../../reauseblecomponet/showcartreuseble/Showcartsreuseble';
 import Loder from '../../../reauseblecomponet/loder/Loder';
 import axios from 'axios';
-import { useEffect } from 'react';
 
-
-
- function Carts() {
+function Carts() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const { setcount } = useContext(SearchContext);
 
-    useFetchCartItem({
-    url: 'https://technoengnearbackend.onrender.com/api/v1/like',
-    setCartItems,
-    setcount,
-    setLoading
-  });
-
-  const fetchcartdata=async()=>{
-    try{
-      const response = await axios.get('https://technoengnearbackend.onrender.com/api/v1/like',{
-        withCredentials:true
+  const fetchcartdata = async () => {
+    try {
+      const response = await axios.get('https://technoengnearbackend.onrender.com/api/v1/like', {
+        withCredentials: true,
       });
-      console.log(response+"response");
+      const likedProducts = response?.data?.data[0]?.likedProduct || [];
+      console.log('likedProducts:', likedProducts);
+      setCartItems(likedProducts);
+      setcount(likedProducts.length);
+    } catch (error) {
+      console.log(error);
+      setCartItems([]);
+    } finally {
+      setLoading(false);
     }
-    catch(error)
-    {
-      console.log(error)
-    }
-  }
-  useEffect(()=>{
-    fetchcartdata();
-  },[]);
-
-  const handleBuyNow = (item) => {
-    alert(`Buying: ${item.product?.productname} (₹${item.product?.price})`);
   };
 
+  useEffect(() => {
+    fetchcartdata();
+  }, []);
 
-  const totalPrice = cartItems.reduce((acc, item) => {
-    return acc + (item.product?.price || 0) * item.quantity;
-  }, 0);
- 
+  const handleBuyNow = (item) => {
+    alert(`Buying: ${item.name} (₹${item.price})`);
+  };
+
+  const totalPrice = cartItems.reduce((acc, item) => acc + (item.price || 0), 0);
 
   const handleremoveToCart = async (item) => {
     try {
-      const productid = item.product?._id?.toString();
+      const productid = item._id?.toString();
       console.log("Removing product ID:", productid);
-  
+
       const response = await axios.delete(
-        `https://mytrabackendclone-3.onrender.com/api/v1/cart/${productid}`,
+        `https://technoengnearbackend.onrender.com/api/v1/like/unlike/${productid}`,
         {
           withCredentials: true,
           headers: {
-            'Content-Type': 'application/json', // ✅ Safe to include
+            'Content-Type': 'application/json',
           },
         }
       );
-  
-      //console.log("Response:", response.data.data.items);
-      setCartItems(response.data.data.items);
+
+      setCartItems(response.data.data.items || []);
       alert('Product removed');
     } catch (error) {
       console.error('Error removing product:', error.response?.data || error.message);
       alert(error.response?.data?.error || 'Failed to remove product.');
     }
   };
-  
-  
 
-  if (loading) return <Loder/>
-  
+  if (loading) return <Loder />;
 
   return (
     <div className="cart-container">
@@ -84,8 +70,7 @@ import { useEffect } from 'react';
         <p className="empty-cart">Your cart is empty</p>
       ) : (
         <>
-          <CartItemList items={cartItems} onBuyNow={handleBuyNow}  onRemove={handleremoveToCart}/>
-
+          <CartItemList items={cartItems} onBuyNow={handleBuyNow} onRemove={handleremoveToCart} />
           <div className="total-price-box">
             <h3>Total Price:</h3>
             <p>₹{totalPrice}</p>
