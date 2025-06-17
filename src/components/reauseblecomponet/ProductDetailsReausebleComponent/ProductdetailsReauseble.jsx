@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { VscCallOutgoing } from "react-icons/vsc";
 import { MdAddCall, MdEmail } from 'react-icons/md';
+import { AiOutlineHeart } from "react-icons/ai";
 import './productdetails.css';
 import { useEffect } from 'react';
+import { FaHeart } from 'react-icons/fa';
+import { FaHeartCirclePlus, FaTowerBroadcast } from 'react-icons/fa6';
+import { toast } from 'react-toastify';
+import SearchContext from '../../../context/context';
+import AddtoLike from '../../customhooks/useaddtocart1/useAddtoCart';
+
+
 // 🔧 Function to format keys like "ceilingAirFlow" to "Ceiling Air Flow"
 function formatLabel(key) {
   return key
@@ -13,11 +21,28 @@ function formatLabel(key) {
 
 export default function ProductdetailsReusable({ product, onclickhandler1 }) {
   const [bigimage,setbigimage]= useState(product.images[0]);
+  const [buttoncolor,setbuttonColor]=useState(false);
+  const {userid}=useContext(SearchContext);
+  const [data,setdata]=useState(null);
    useEffect(() => {
     if (product.images && product.images.length > 0) {
       setbigimage(product.images[0]);
     }
   }, [product]); 
+   const onclickhandler11 = async () => {
+  try {
+    setbuttonColor(true);
+    toast.success(`Added to like: ${product._id} & User: ${userid}`);
+
+    const response = await AddtoLike(product._id, setdata, data, userid);
+    console.log("Like response in productdetailsreuseble:", response);
+  } catch (error) {
+    toast.error("Error adding to like");
+    console.error(error);
+  }
+};
+
+
   return (
     <div className="product-details-container">
       {product.image?  <div className="product-image">
@@ -73,6 +98,33 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
         <button className="buy-now-btn">
           <a href="tel:+918851148551">Call Now</a>
         </button>
+        
+         <button 
+  style={{
+    fontSize: "25px",
+    backgroundColor: "white",
+    color: "black",
+    textAlign: "center",
+    width: "100%",
+    height: "38px",
+    cursor: "pointer",
+    boxShadow: buttoncolor ? "0px 0px 4px 0px grey" : "0px 0px 3px 0px black",
+    borderRadius: "10px",
+    border:"none"
+    
+  }}  
+  onClick={onclickhandler11}
+>
+  <FaHeartCirclePlus 
+    style={{ 
+      fontSize: "32px", 
+      color: buttoncolor ? "red" : "black",
+    }} 
+  />
+</button>
+
+        
+        
       </div>
     </div>
   );

@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
         
          if (isloggedin) {
            const response = await axios.post(
-             `https://mytrabackendclone-3.onrender.com/api/v1/cart/${id}`,
+             `http://localhost:3001/api/v1/like/${id}`,
              {},
              { withCredentials: true }
            );
