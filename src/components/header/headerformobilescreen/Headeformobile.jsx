@@ -4,11 +4,15 @@ import Imagelogo from '../imagelogo/imagelogo'
 import { FaAlignCenter } from 'react-icons/fa'
 import { FaAlignJustify } from 'react-icons/fa6'
 import { icons } from './helpercode'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsBagHeart } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom'
 import { MdAddIcCall } from "react-icons/md";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { MdHomeFilled } from "react-icons/md";
 import { MdOutlineAddIcCall } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa";
 
 
 import './headerformobile.css'
@@ -26,7 +30,7 @@ export default function Headeformobile() {
 
       <div className='fi'>
        <div className='lineicon' onClick={()=> navigate('/linksm')}>
-        <FaAlignJustify/>
+        <GiHamburgerMenu/>
        </div>
        <Imagelogo/>
       </div> 
@@ -39,7 +43,10 @@ export default function Headeformobile() {
            <MdOutlineMailOutline  className='ad'/>
         </div>
         <div className='iconsc'>
-          <MdHomeFilled className='ad' onClick={()=>navigate('/')}/>
+          <AiOutlineHeart className='ad' onClick={()=>navigate('/carts')} />
+        </div>
+         <div className='iconsc'>
+          <FaRegUser  className='ad' onClick={()=>navigate('/login')} />
         </div>
        
       </div> 
