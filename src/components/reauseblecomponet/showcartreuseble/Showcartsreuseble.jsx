@@ -14,7 +14,7 @@ export default function CartItemList({ items, onBuyNow,onRemove}) {
             {/**<p>Price: ₹{item.product?.price}</p>
             <p>Quantity: {item.quantity}</p> */}
             <button className="buy-now-btn" onClick={() => onBuyNow(item)}>
-              Buy Now
+              send Enquery
             </button>
             <button className="buy-now-btn" onClick={() => onRemove(item)} style={{"backgroundColor":"red","marginLeft":"10px"}}>
                remove to like

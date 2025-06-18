@@ -6,6 +6,7 @@ export default function Contextwrapper({ children }) {
  const [showemail,setshowemail]=useState(false);
  const[showenquiry,setshowenquiry]=useState(false);
  const [userid,setuserid]=useState('');
+ const [likedProducts, setLikedProducts] = useState({});
 
   
 
@@ -56,6 +57,7 @@ export default function Contextwrapper({ children }) {
       showemail,setshowemail,
       setshowenquiry,showenquiry,
       userid,setuserid,
+      likedProducts, setLikedProducts
       
     }}>
       {children}

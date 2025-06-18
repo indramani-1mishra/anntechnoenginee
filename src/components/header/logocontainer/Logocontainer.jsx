@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaRegUser } from "react-icons/fa";
-import { MdOutlineShoppingBag } from "react-icons/md";
+import { BsBagHeart } from "react-icons/bs";
 import { CiHeart, CiMail } from "react-icons/ci";
 import './logo.css';
 import Logincontainer from '../logincontainer/logincontainer';
@@ -49,9 +49,9 @@ export default function Logocontainer() {
 
       {/* Cart/Bag */}
       <div className='logos' onClick={onclickhandler}>
-        <span className='count'>{count}</span>
-        <span><MdOutlineShoppingBag style={{ fontSize: "20px" }} /></span>
-        <span>Bag</span>
+       {/** <span className='count'>{count}</span> */}
+        <span><BsBagHeart style={{ fontSize: "20px" }} /></span>
+        <span>Wishlist</span>
       </div>
       
     </div>

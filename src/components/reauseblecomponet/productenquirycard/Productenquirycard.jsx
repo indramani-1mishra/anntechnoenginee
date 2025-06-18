@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,} from "react";
 import "./ProductInquiryCard.css";
 import SearchContext from "../../../context/context";
 import { IoClose } from "react-icons/io5";
