@@ -46,7 +46,7 @@ export default function Headeformobile() {
           <AiOutlineHeart className='ad' onClick={()=>navigate('/carts')} />
         </div>
          <div className='iconsc'>
-          <FaRegUser  className='ad' onClick={()=>navigate('/login')} />
+          <FaRegUser  className='ad' onClick={()=>navigate('/userdetails')} />
         </div>
        
       </div> 
