@@ -15,11 +15,10 @@ function formatLabel(key) {
 }
 const cleanAndSplitFeatures = (text) => {
   return text
-    .split(/[\n\r\t]*[�□?•▪▫]+[\n\r\t]*/g)  // split and remove symbols & extra whitespace
-    .map(str => str.trim())   // clean spaces
-    .filter(Boolean);         // remove empty lines
+    .split(/[�□?•▪▫]\s+/g)   // split only if symbol is followed by space
+    .map(str => str.trim())   // remove surrounding whitespace
+    .filter(Boolean);         // remove empty entries
 };
-
 
 
 export default function ProductdetailsReusable({ product, onclickhandler1 }) {
@@ -34,6 +33,7 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
     const storedLikes = JSON.parse(localStorage.getItem("likedIds")) || {};
     setLikedProducts(storedLikes);
   }, []);
+  
 
   // 🟢 Handler for heart button click
   const onclickhandler11 = async () => {
@@ -60,7 +60,7 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
     }
   };
 
-  // 🖼️ Update main image on product change
+ 
   useEffect(() => {
     if (product.images && product.images.length > 0) {
       setbigimage(product.images[0]);

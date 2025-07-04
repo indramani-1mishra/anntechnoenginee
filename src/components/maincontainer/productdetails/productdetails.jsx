@@ -1,4 +1,4 @@
-import React, { useContext,  } from 'react';
+import React, { useContext, useEffect,  } from 'react';
 import {  useParams } from 'react-router-dom';
 import Usefetchapi from '../../customhooks/Usefetchapi';
 import Reuseablecompont from '../../reauseblecomponet/Reuseablecompont';
@@ -13,6 +13,11 @@ import { sendEmail } from '../../customhooks/SendEmail/Sendemail';
 export default function Productdetails() {
   const { id } = useParams();
    const {setshowenquiry,showenquiry}= useContext(SearchContext);
+    useEffect(()=>{
+    window.scrollTo({top:0,behavior:"auto"})
+  },[id]);
+  
+
   
   // Fetch individual product
   const { response: productResponse } = Usefetchapi(`https://technoengnearbackend.onrender.com/api/v1/products/${id}`);

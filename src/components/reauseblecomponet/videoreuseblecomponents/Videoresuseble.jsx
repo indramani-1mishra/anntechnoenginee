@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './videoReusable.css';
 import Formoreinfo from '../../maincontainer/interoduction/formoreinfo/Formoreinfo';
 import { useParams } from 'react-router-dom';
 
 export default function VideoReusable() {
   const { id, hedding } = useParams();
-
+  useEffect(() => {
+    // Page top par scroll ho
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+ 
+  
   return (
     
         <div className="video-card2">

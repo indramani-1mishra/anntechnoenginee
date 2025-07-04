@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {  } from 'react'
 import { useNavigate } from 'react-router-dom'
 import VideoCard from '../../../reauseblecomponet/videocard/Videocard';
 import './videocontainer.css'
+
 export default function Videocontainer() {
     const navigate = useNavigate();
 
@@ -14,17 +15,20 @@ export default function Videocontainer() {
                thumbnail="firstimage.jpg"
                title="Portable Room De humidifier"
                onclickhandler={()=>  navigate(`/showvideo/tgBpTaPvnQ4/${encodeURIComponent('Portable Room De humidifier')}`)}
+              
             />
            
              <VideoCard 
                thumbnail="second.jpg"
                title="Ultrasonic Mist Maker Fogger Humidifier"
                onclickhandler={()=>  navigate(`/showvideo/VjBc_9AGPEU/${encodeURIComponent('Ultrasonic Mist Maker Fogger Humidifier')}`)}
+                
             />
             <VideoCard 
                thumbnail="third.jpg"
                title="Industrial Ultrasonic Humidifier ate20UH"
                onclickhandler={()=>  navigate(`/showvideo/VpISwfpNx6c/${encodeURIComponent('Industrial Ultrasonic Humidifier ate20UH')}`)}
+                
             />
          </div>
    </>

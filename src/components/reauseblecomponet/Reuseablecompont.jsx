@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './reuseblecomponents.css'
 import { useNavigate } from 'react-router-dom'
 import Loder from './loder/Loder';
@@ -10,8 +10,7 @@ export default function Reuseablecompont({ data }) {
   const onclickhandler = (id) => {
     navigate(`/productdetails/${id}`);
   };
-  console.log(data+"data");
-
+ 
 
 
   return (
