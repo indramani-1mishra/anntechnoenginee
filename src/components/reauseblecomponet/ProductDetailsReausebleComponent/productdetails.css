@@ -56,6 +56,8 @@
 .technical-specs {
  
   width: 100%;
+  
+  text-transform: none;
 }
 
 .technical-specs h3 {
@@ -86,6 +88,8 @@
 .spec-label {
   font-weight: 600;
   color: #555;
+  
+  
 }
 
 .spec-value {
@@ -96,6 +100,8 @@
   width: 40%;
   display: flex;
   justify-content: start;
+ 
+  
   
 }
 
@@ -146,7 +152,7 @@
 }
 .big-image{
  
-  height: 400px;
+  height: 500px;
   width: 100%;
 }
 .big-image img{
@@ -212,4 +218,50 @@
 }
 
 
+}
+
+/* features.css */
+
+.fea {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.features-list {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  list-style-type: disc;
+  list-style-position: inside;
+  text-transform: capitalize;
+ 
+}
+
+.features-list li {
+  font-size: 16px;
+  color: #333333;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+   
+}
+.features-list li::before {
+  content: "➤ ";
+  color: #1e90ff;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.features-list li:hover {
+  color: #1e90ff;
+  cursor: pointer;
 }

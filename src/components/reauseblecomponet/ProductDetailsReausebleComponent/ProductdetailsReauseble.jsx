@@ -6,12 +6,21 @@ import SearchContext from '../../../context/context';
 import AddtoLike from '../../customhooks/useaddtocart1/useAddtoCart';
 
 // 🔧 Format keys (e.g., ceilingAirFlow -> Ceiling Air Flow)
+
 function formatLabel(key) {
   return key
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/_/g, ' ')
     .replace(/\b\w/g, char => char.toUpperCase());
 }
+const cleanAndSplitFeatures = (text) => {
+  return text
+    .split(/[\n\r\t]*[�□?•▪▫]+[\n\r\t]*/g)  // split and remove symbols & extra whitespace
+    .map(str => str.trim())   // clean spaces
+    .filter(Boolean);         // remove empty lines
+};
+
+
 
 export default function ProductdetailsReusable({ product, onclickhandler1 }) {
   const [bigimage, setbigimage] = useState(product.images[0]);
@@ -81,10 +90,10 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
 
       <div className="details-container">
         <div className="product-info">
-          <h2>{product.name}</h2>
-          <p className="spec-row"><strong>Category:</strong> {product.category}</p>
-          <p className="spec-row"><strong>Brand:</strong> {product.brand}</p>
-          <p className="spec-row"><strong>Min. Order Qty:</strong> {product.minOrderQty}</p>
+          <h2 style={{textTransform:"uppercase"}}>{product.name}</h2>
+          <p className="spec-row" style={{textTransform:"uppercase"}}><strong>Category:</strong> {product.category}</p>
+          <p className="spec-row" ><strong style={{textTransform:"capitalize"}}>Brand:</strong> {product.brand ==="ate (ANN Techno Engineer)"?<p style={{display:"flex",justifyContent:"center",}}><span >ate</span> <span style={{textTransform:"capitalize" ,marginLeft:"px"}}>(ANN Techno Engineer)</span></p>:product.brand }</p>
+       
         </div>
 
         {product.technicalSpecs && Object.keys(product.technicalSpecs).length > 0 && (
@@ -92,21 +101,28 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
             <div className="spec-list">
               {Object.entries(product.technicalSpecs).map(([key, value]) => (
                 <p className="spec-row" key={key}>
+
                   <span className="spec-label">{formatLabel(key)}</span>
-                  <span className="spec-value">{value}</span>
+                  {value==="ate (ANN Techno Engineer)"  ? <p style={{display:"flex",justifyContent:"center",}}><span >ate</span> <span style={{textTransform:"capitalize" ,marginLeft:"px"}}>(ANN Techno Engineer)</span></p>:<span className="spec-value">{value}</span>}
+                  
                 </p>
               ))}
             </div>
           </div>
         )}
 
-        <p><strong>Features:</strong></p>
-        <ul>
-          {Array.isArray(product.features)
-            ? product.features.map((feat, i) => <li key={i}>{feat}</li>)
-            : <li>{product.features}</li>
-          }
-        </ul>
+    <p className="fea">Features</p>
+<ul className="features-list">
+  {product.features.flatMap((feature, i) =>
+    cleanAndSplitFeatures(feature).map((line, j) => (
+      <li key={`${i}-${j}`}>{line}</li>
+    ))
+  )}
+</ul>
+
+
+
+
       </div>
 
       <div className="action-buttons">
