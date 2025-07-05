@@ -3,10 +3,11 @@ import { createRoot } from "react-dom/client";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Carousel के लिए स्टाइल्स
 import c1 from "../assets/image1.jpg";
-import c2 from "../assets/image2.jpg";
+import c2 from "../assets/image2.webp";
 import c3 from "../assets/image3.jpg";
 import c4 from "../assets/image4.jpg";
-import c5 from "../assets/image4.jpg";
+import c5 from "../assets/image5.webp";
+import c6 from "../assets/image6.jpg";
 import './crousel.css';
 import { BiBorderAll } from "react-icons/bi";
 import { TbBackground } from "react-icons/tb";
@@ -58,12 +59,16 @@ const DemoCarousel = () => {
                 </div>
                 
                     <div className="cv">
-                    <img src={c5} alt="Slide 5" style={imageStyle}  width="100%"/>
-                    <p className="legend">Legend 4</p>
+                    <img src={c4} alt="Slide 5" style={imageStyle}  width="100%"/>
+                    <p className="legend"> 4</p>
                 </div>
                 <div>
                     <img src={c5} alt="Slide 5" style={imageStyle}  width="100%"/>
-                    <p className="legend">Legend 5</p>
+                    <p className="legend"> 5</p>
+                </div>
+                <div>
+                    <img src={c6} alt="Slide 5" style={imageStyle}  width="100%"/>
+                    <p className="legend">6</p>
                 </div>
             </Carousel>
         </div>

@@ -97,6 +97,25 @@ const categoryFields = {
     { label: 'Product Dimensions', name: 'productDimensions', type: 'text' },
     { label: 'Quality/Safety Approval', name: 'qualityApproval', type: 'text' },
   ],
+  'pharmaceutical dehumidifier': [
+    { label: 'Make', name: 'make', type: 'text', required: true },
+    { label: 'name', name: 'name', type: 'text', required: true },
+    { label: 'Model', name: 'model', type: 'text', required: true },
+    { label: 'Dehumidifying Capacity (kg/hr)', name: 'dehumidifyingCapacity', type: 'text' },
+    { label: 'Air Flow (m3/hr)', name: 'airFlow', type: 'text' },
+    { label: 'Humidity Setting', name: 'humiditySetting', type: 'text' },
+    { label: 'Working Temp.', name: 'workingTemp', type: 'text' },
+    { label: 'Power Supply', name: 'powerSupply', type: 'text' },
+    { label: 'Power Consumption', name: 'powerConsumption', type: 'text' },
+    { label: 'Rated Current', name: 'ratedCurrent', type: 'text' },
+    { label: 'Compressor Type', name: 'compressorType', type: 'text' },
+    { label: 'Noise Level', name: 'noiseLevel', type: 'text' },
+    { label: 'Refrigerant', name: 'refrigerant', type: 'text' },
+    { label: 'Capacity of Water Tank', name: 'waterTankCapacity', type: 'text' },
+    { label: 'Body Type', name: 'bodyType', type: 'text' },
+    { label: 'Product Dimensions', name: 'productDimensions', type: 'text' },
+    { label: 'Quality/Safety Approval', name: 'qualityApproval', type: 'text' },
+  ],
    'Industrial Dehumidifier': [
     { label: 'Make', name: 'make', type: 'text', required: true },
    { label: 'name', name: 'name', type: 'text', required: true },
@@ -324,6 +343,8 @@ const ADDProductForm = () => {
             <option value="Desiccant Dehumidifier">Desiccant Dehumidifier</option>
             <option value="Ultrasonic Humidifier">Ultrasonic Humidifier</option>
             <option value="Ceiling Mounted Dehumidifier">Ceiling Mounted Dehumidifier</option>
+             <option value="pharmaceutical dehumidifier">pharmaceutical dehumidifier</option>
+
               <option value="Refrigerated Type Compressed Air Dryer">Refrigerated Type Compressed Air Dryer</option>
                 <option value="Electric Humidifier">Electric Humidifier</option>
           </select>
