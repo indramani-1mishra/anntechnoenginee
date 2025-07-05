@@ -21,8 +21,9 @@ function Carts() {
       const response = await axios.get('https://technoengnearbackend.onrender.com/api/v1/like', {
         withCredentials: true,
       });
-      const likedProducts = response?.data?.data[0]?.likedProduct || [];
-    
+      const likedProducts = response?.data?.data?.likedProduct || [];
+
+         console.log(response);
       setCartItems(likedProducts);
       setcount(likedProducts.length);
     } catch (error) {

@@ -319,7 +319,7 @@ const ADDProductForm = () => {
           >
           
             <option value="">Select Category</option>
-            <option value="Dehumidifires">Dehumidifiers</option>
+            <option value="Dehumidifier">Dehumidifier</option>
             <option value="Industrial Dehumidifier">Industrial Dehumidifier</option>
             <option value="Desiccant Dehumidifier">Desiccant Dehumidifier</option>
             <option value="Ultrasonic Humidifier">Ultrasonic Humidifier</option>
