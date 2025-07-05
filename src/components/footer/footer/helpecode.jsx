@@ -2,6 +2,7 @@ import { FaLinkedin, FaQuestionCircle } from "react-icons/fa";
 //import { FaLinkedin ,} from "react-icons/fa";
 import {  FaGithub, FaInstagram, FaSquareFacebook,FaToolbox, FaGift,   } from "react-icons/fa6";
 import { CiStar } from "react-icons/ci";
+import { IoLogoYoutube } from "react-icons/io5";
  export const data=["Contact Us","About Us","carries","flipcart stories","press","coprative process"];
  export const footerLinks = [
    
@@ -46,10 +47,11 @@ import { CiStar } from "react-icons/ci";
   ];
   
    export const socialLinks = [
-    { icon: <FaSquareFacebook className="s" />, path: "/" },
-    { icon: <FaInstagram className="s" />, path: "/" },
-    { icon: <FaLinkedin className="s" />, path: "/" },
-    { icon: <FaGithub className="s" />, path: "/" }
+    { icon: <FaSquareFacebook className="s" />, path: "https://www.facebook.com/profile.php?id=100082910731976" },
+    { icon: <FaInstagram className="s" />, path: "https://www.instagram.com/anntechnoengineer123?igsh=ZjhjNGh5NXFyY3Zi" },
+    { icon: <FaLinkedin className="s" />, path: "https://www.linkedin.com/in/ann-techno-engineer-996298277/" },
+    { icon:<IoLogoYoutube className="s" />, path: "https://www.youtube.com/@anntechnoengineer4525" }
+    
   ];
   
   
