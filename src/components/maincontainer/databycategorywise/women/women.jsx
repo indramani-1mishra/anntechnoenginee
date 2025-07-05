@@ -3,12 +3,12 @@
 import Databycategory from '../../../reauseblecomponet/databycategoryreuseblecomponents';
 
 
-export default function Women() {
+export default function Pharmaceutical_dehumidifiern() {
  
 
   return (
     <>
-    <Databycategory  category="women" />
+    <Databycategory  category="pharmaceutical dehumidifier" />
     </>
   );
 }

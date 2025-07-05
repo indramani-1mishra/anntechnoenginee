@@ -16,6 +16,7 @@ import ADDProductForm from '../../addproducts/Addproducts';
 import Ceiling_Mounted_Dehumidifier from '../perfume/perfume';
 import Refrigerated_Type_Compressed_Air_Dryer from '../shoes/shoes';
 import Electric_Humidifier from '../toys/toys';
+import Pharmaceutical_dehumidifiern from '../women/women';
 
 // Lazy loaded components
 
@@ -68,6 +69,7 @@ export default function Routers() {
         <Route path='/Addproducts' element={<ADDProductForm/>}/>
         <Route path='/Ceiling_Mounted_Dehumidifier' element={<Ceiling_Mounted_Dehumidifier/>}/>
         <Route path='/Electric_Humidifier' element={<Electric_Humidifier/>}/>
+        <Route path='/pharmaceutical_dehumidifiern' element={<Pharmaceutical_dehumidifiern/>}/>
       </Routes>
      </MainLayout>
     </Suspense>
