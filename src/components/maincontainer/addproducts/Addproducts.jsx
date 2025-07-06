@@ -253,7 +253,7 @@ const ADDProductForm = () => {
 
     if (formData.image && formData.image.length > 0) {
       for (let i = 0; i < formData.image.length; i++) {
-        form.append('image', formData.image[i]);
+        form.append('images', formData.image[i]);
       }
     }
 
