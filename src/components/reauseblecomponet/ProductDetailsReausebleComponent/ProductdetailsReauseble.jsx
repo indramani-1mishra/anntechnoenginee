@@ -23,7 +23,7 @@ const cleanAndSplitFeatures = (text) => {
 
 export default function ProductdetailsReusable({ product, onclickhandler1 }) {
   const [bigimage, setbigimage] = useState(product.images[0]);
- 
+  const[showvideo,setshowvideo]=useState(false);
 
   const { userid,likedProducts, setLikedProducts } = useContext(SearchContext);
   const [data, setdata] = useState(null);
@@ -59,6 +59,10 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
       toast.error("Error liking product");
     }
   };
+  const onclickhandler12= (image)=>{
+    setbigimage(image);
+    setshowvideo(false);
+  }
 
  
   useEffect(() => {
@@ -72,19 +76,46 @@ export default function ProductdetailsReusable({ product, onclickhandler1 }) {
       {product.image ? (
         <div className="product-image">
           <img src={product.image} alt={product.name} loading="lazy" />
+
         </div>
       ) : (
         <div className='product-image1'>
-          <div className='big-image'>
+         {
+          !showvideo ? <>
+             <div className='big-image'>
             <img src={bigimage} alt={product.name} loading="lazy" />
           </div>
+          </>:<>
+              <div className='big-image' >
+                <video 
+                  src={product.video} 
+              controls 
+            width="100%"
+            height="90%"
+            autoPlay
+         style={{ borderRadius: "8px" }}
+           >
+         Your browser does not support the video tag.
+    </video>
+  </div>
+          </>
+        }
           <div className='small-image'>
             {product.images.map((image) => (
               <div className='image-con' key={image}>
-                <img src={image} alt={product.name} loading="lazy" onClick={() => setbigimage(image)} />
+                <img src={image} alt={product.name} loading="lazy" onClick={() => onclickhandler12(image)} />
               </div>
             ))}
+          
+
           </div>
+           {product.video && (
+                <div className='image-con video-thumbnail' style={{height:"100px"}}  >
+                 <img src={bigimage} alt={product.name} loading="lazy" onClick={()=>setshowvideo(!showvideo)} className='thumbnail-image'/>
+                    <div className="play-icon" onClick={()=>setshowvideo(!showvideo)}>&#9658;</div> {/* Unicode for Play Button */}
+
+  </div>
+)}
         </div>
       )}
 

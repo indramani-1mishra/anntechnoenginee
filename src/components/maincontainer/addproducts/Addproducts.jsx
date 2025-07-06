@@ -4,81 +4,38 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+// Initial form state (unchanged)
 const initialFormData = {
   category: '',
   minOrderQty: '',
   features: '',
   image: null,
   name: '',
-
-  // Already existing fields for other categories...
-  make: '',
-  model: '',
-  dehumidifyingCapacity: '',
-  airFlow: '',
-  humiditySetting: '',
-  workingTemp: '',
-  powerSupply: '',
-  powerConsumption: '',
-  ratedCurrent: '',
-  compressorType: '',
-  noiseLevel: '',
-  refrigerant: '',
-  waterTankCapacity: '',
-  bodyType: '',
-  productDimensions: '',
-  qualityApproval: '',
-  processAirFlow: '',
-  reactivationAirFlow: '',
-  appliedTemperature: '',
-  maxPower: '',
-  powerRating: '',
-  voltage: '',
-  current: '',
-  dimension: '',
-  weight: '',
-  humidificationCapacity: '',
-  powerInput: '',
-  airVolume: '',
-  controlMode: '',
-  humidityControl: '',
-  controlPrecision: '',
-  mistOutlet: '',
-  waterTankVolume: '',
-  wayOfWater: '',
-  waterQualityRequired: '',
-  dimensions: '',
-
-dehumidificationCapacity: '',
-dehumidifyingCapacityKgHr: '',
-
-
-
-  // ✅ New fields for Electric Humidifier:
-  evaporationCapacity: '',
-  atomizingCapacity: '',
-  waterCapacity: '',
-  waterPressure: '',
-  mistSize: '',
-  workTemperature: '',
-  cleaningFrequency: '',
-  capacity: '',
-  inletFlow: '',
-  inletPressure: '',
-  inletTemperature: '',
-  inletMoisture: '',
-  outletFlow: '',
-  outletPressure: '',
-  outletTemperature: '',
-  outletDewPoint: '',
-  linePressure: '',
-  cycleTime: '',
-  electricSupply: '',
-  operation: '',
+  video: null,
+  // ... (other fields remain the same)
+  make: '', model: '', dehumidifyingCapacity: '', airFlow: '',
+  humiditySetting: '', workingTemp: '', powerSupply: '',
+  powerConsumption: '', ratedCurrent: '', compressorType: '',
+  noiseLevel: '', refrigerant: '', waterTankCapacity: '',
+  bodyType: '', productDimensions: '', qualityApproval: '',
+  processAirFlow: '', reactivationAirFlow: '', appliedTemperature: '',
+  maxPower: '', powerRating: '', voltage: '', current: '',
+  dimension: '', weight: '', humidificationCapacity: '',
+  powerInput: '', airVolume: '', controlMode: '', humidityControl: '',
+  controlPrecision: '', mistOutlet: '', waterTankVolume: '',
+  wayOfWater: '', waterQualityRequired: '', dimensions: '',
+  dehumidificationCapacity: '', dehumidifyingCapacityKgHr: '',
+  evaporationCapacity: '', atomizingCapacity: '', waterCapacity: '',
+  waterPressure: '', mistSize: '', workTemperature: '', cleaningFrequency: '',
+  capacity: '', inletFlow: '', inletPressure: '', inletTemperature: '',
+  inletMoisture: '', outletFlow: '', outletPressure: '', outletTemperature: '',
+  outletDewPoint: '', linePressure: '', cycleTime: '', electricSupply: '',
+  operation: ''
 };
 
+// Your categoryFields object remains unchanged above this code
 const categoryFields = {
-  'Dehumidifires': [
+  'Dehumidifiers': [
     { label: 'Make', name: 'make', type: 'text', required: true },
     { label: 'name', name: 'name', type: 'text', required: true },
     { label: 'Model', name: 'model', type: 'text', required: true },
@@ -237,8 +194,7 @@ const categoryFields = {
     { label: 'Quality/Safety Approval', name: 'ceilingQualityApproval', type: 'text' },
   ],
 
-};
-
+}; // If you move it to a separate file
 
 const ADDProductForm = () => {
   const [formData, setFormData] = useState(initialFormData);
@@ -247,10 +203,7 @@ const ADDProductForm = () => {
 
   const handleCategoryChange = (e) => {
     const category = e.target.value;
-    setFormData({
-      ...initialFormData,
-      category,
-    });
+    setFormData({ ...initialFormData, category });
     if (fileInputRef.current) fileInputRef.current.value = null;
   };
 
@@ -259,7 +212,7 @@ const ADDProductForm = () => {
     if (type === 'file') {
       setFormData((prev) => ({
         ...prev,
-        [name]: files, // Store FileList for multiple images
+        [name]: name === 'video' ? files[0] : files,
       }));
     } else {
       setFormData((prev) => ({
@@ -277,7 +230,7 @@ const ADDProductForm = () => {
     }
 
     const form = new FormData();
-    const technicalKeys = categoryFields[formData.category].map((f) => f.name);
+    const technicalKeys = categoryFields[formData.category]?.map((f) => f.name) || [];
     const technicalSpecs = {};
 
     technicalKeys.forEach((key) => {
@@ -298,12 +251,21 @@ const ADDProductForm = () => {
     form.append('features', JSON.stringify(featuresArray));
     form.append('technicalSpecs', JSON.stringify(technicalSpecs));
 
-    // ✅ Append multiple images
     if (formData.image && formData.image.length > 0) {
       for (let i = 0; i < formData.image.length; i++) {
-        form.append('images', formData.image[i]);
+        form.append('image', formData.image[i]);
       }
     }
+
+    if (formData.video) {
+      form.append('video', formData.video); // ✅ Fix: video is already a File
+    }
+
+    console.log('Submitting form with data:', {
+      ...formData,
+      features: featuresArray,
+      technicalSpecs,
+    });
 
     try {
       const response = await axios.post(
@@ -315,12 +277,13 @@ const ADDProductForm = () => {
         }
       );
       toast.success('Product uploaded successfully!');
-      console.log(response);
+      console.log(response.data+"data");
       setFormData(initialFormData);
       if (fileInputRef.current) fileInputRef.current.value = null;
     } catch (error) {
-      //console.error(error.response.data.message);
-      toast.error(error.response.data.message?error.response.data.message:'Error uploading product');
+      console.error('Upload error:', error.response?.data || error.message);
+      console.log(error)
+      toast.error(error.response?.data?.message || 'Error uploading product');
     }
   };
 
@@ -336,21 +299,14 @@ const ADDProductForm = () => {
             className="form-control"
             required
           >
-          
             <option value="">Select Category</option>
-            <option value="Dehumidifier">Dehumidifier</option>
-            <option value="Industrial Dehumidifier">Industrial Dehumidifier</option>
-            <option value="Desiccant Dehumidifier">Desiccant Dehumidifier</option>
-            <option value="Ultrasonic Humidifier">Ultrasonic Humidifier</option>
-            <option value="Ceiling Mounted Dehumidifier">Ceiling Mounted Dehumidifier</option>
-             <option value="pharmaceutical dehumidifier">pharmaceutical dehumidifier</option>
-
-              <option value="Refrigerated Type Compressed Air Dryer">Refrigerated Type Compressed Air Dryer</option>
-                <option value="Electric Humidifier">Electric Humidifier</option>
+            {Object.keys(categoryFields).map((cat) => (
+              <option key={cat} value={cat}>{cat}</option>
+            ))}
           </select>
         </div>
 
-        {formData.category &&
+        {Array.isArray(categoryFields[formData.category]) &&
           categoryFields[formData.category].map((field) => (
             <div className="form-group" key={field.name}>
               <label className="form-label">{field.label}</label>
@@ -385,6 +341,17 @@ const ADDProductForm = () => {
             placeholder="Enter features separated by commas"
             value={formData.features}
             onChange={handleChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label className="form-label">Upload Product Video (Optional)</label>
+          <input
+            type="file"
+            name="video"
+            className="form-control"
+            onChange={handleChange}
+            accept="video/*"
           />
         </div>
 

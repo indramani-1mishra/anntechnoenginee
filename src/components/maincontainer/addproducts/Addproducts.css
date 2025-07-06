@@ -9,6 +9,10 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-transform: lowercase;
 }
+.container{
+  position: relative;
+  top: 100px;
+}
 .addproductmain {
   max-width: 1000px;
   background: #fff;
@@ -22,6 +26,7 @@ body {
   flex-direction: row;
    
   border: 2px solid gold;
+  
   
 }
 

@@ -265,3 +265,28 @@
   color: #1e90ff;
   cursor: pointer;
 }
+.video-thumbnail {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 32px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); /* translucent black */
+  border-radius: 50%;
+  padding: 10px 12px;
+}
