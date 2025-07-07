@@ -78,11 +78,21 @@ export default function Footer() {
                   <li key={index}>{item}</li>
                 )
               })}
+
+                          <li style={{ textAlign: 'justify', padding: '5px', backgroundColor: 'rgb(11, 11, 37)',  }}>
+  <p style={{ margin: 0, fontSize: '14px' }}>Made with ❤️ by Indramani Mishra</p>
+  <p style={{ margin: 0, fontSize: '14px' }}>
+    Contact: <a href="mailto:rajmishrasky@email.com" style={{ color: 'white', textDecoration: 'underline' }}>
+      rajmishrasky@email.com
+    </a>
+  </p>
+</li>
              </ul>
             
            </div>
          </div>
       </div>
+  
       <div className="lowerfooter">
         <ul>
             {footerActions.map((item,index)=>{
@@ -99,6 +109,9 @@ export default function Footer() {
                <span><FaCcVisa className="visa" /></span> 
                 <span><FaCcDiscover /></span>
             </li>
+   
+
+
         </ul>
         </div>
   

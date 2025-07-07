@@ -33,6 +33,19 @@ export const menuData = [
   { name: "Ceiling Mounted Dehumidifier", path: "" } // Duplicate name as shown in image
 ],
 
+
+  },
+  {
+    category: "Pharcipharmaceutical Dehumidifier",
+    items : [
+  { name: "Pharma Dehumidifier", path: "" },
+  { name: "Industrial Pharma Dehumidifier", path: "" },
+  { name: "Capsule Filling Dehumidifier", path: "" },
+  { name: "Celling & Duct Mounted Pharma Dehumidifier", path: "" }, // Duplicate name as shown in image
+  { name: "Industrial Pharmaceutical Dehumidifier", path: "" }
+ ],
+
+
   },
   {
     category: "Desiccant Dehumidifier",

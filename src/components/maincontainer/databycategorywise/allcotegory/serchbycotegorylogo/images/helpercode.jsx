@@ -46,6 +46,7 @@ import women from './industrial-refrigerant-dehumidifier-ated900-90-l-d-1000x100
 import perfume from './ceiling-mount-dehumidifier-500x500.webp';
 import jewelry from './Industrial Dehumidifiers Manufacturers.jpg';
 import shoes from './elecrrichumidifier.jpg';
+import d132 from './d132.jpg';
 
 const categories = [
   {
@@ -95,20 +96,20 @@ const categories = [
   {
     title: "pharcipharmaceutical dehumidifier",
     items: [
-      { name: "u1", image: ph1, path: "/pharcipharmaceutical_dehumidifier" },
-      { name: "Bags", image: ph2, path: "/pharcipharmaceutical_dehumidifier" },
+      { name: "u1", image: ph1, path: "/pharmaceutical_dehumidifiern" },
+      { name: "Bags", image: ph2, path: "/pharmaceutical_dehumidifiern" },
       
       
-      { name: "Bags", image: ph3, path: "/pharcipharmaceutical_dehumidifier" },
+      { name: "Bags", image: ph3, path: "/pharmaceutical_dehumidifiern" },
       
-      { name: "u2", image: ph4, path: "/pharcipharmaceutical_dehumidifier" },
-      { name: "u1", image: ph5, path: "/pharcipharmaceutical_dehumidifier" },
+      { name: "u2", image: ph4, path: "/pharmaceutical_dehumidifiern" },
+      { name: "u1", image: ph5, path: "/pharmaceutical_dehumidifiern" },
     ]
   },
   {
     title: "Desiccant Dehumidifier",
     items: [
-      { name: "Men", image: men, path: "/Desiccant_Dehumidifier" },
+      { name: "Men", image: d132, path: "/Desiccant_Dehumidifier" },
          
       { name: "d1", image: d1, path: "/Desiccant_Dehumidifier" },
   
@@ -137,7 +138,7 @@ const categories = [
       { name: "Shoes", image: shoes, path: "/Electric_Humidifier" },
        { name: "Shoes", image: ee1, path: "/Electric_Humidifier" },
        { name: "Shoes", image: ee2, path: "/Electric_Humidifier" },
-       { name: "Shoes", image: ee3, path: "/Electric_Humidifier" },
+     
     ]
   },
   {
