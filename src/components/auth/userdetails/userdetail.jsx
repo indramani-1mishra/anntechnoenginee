@@ -11,7 +11,7 @@ function Userdetail() {
   const [userdata, setUserdata] = useState({});
   const { setname, userid, setisloggedin } = useContext(SearchContext);
   const navigate = useNavigate();
-
+    console.log(userid+"userid");
   useEffect(() => {
     if (!userid) {
       setMessage("User not authorized, please login first.");

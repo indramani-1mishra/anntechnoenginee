@@ -5,10 +5,14 @@ export default function Contextwrapper({ children }) {
   const [input, setInput] = useState('');
  const [showemail,setshowemail]=useState(false);
  const[showenquiry,setshowenquiry]=useState(false);
- const [userid,setuserid]=useState('');
+ 
  const [likedProducts, setLikedProducts] = useState({});
 
-  
+  const [userid,setuserid]=useState(()=>{
+     const data = localStorage.getItem('userid');
+     const userid = data? data: "";
+     return userid;
+  });
 
  const [isloggedin, setisloggedin] = useState(() => {
   try {
