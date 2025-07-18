@@ -1,8 +1,8 @@
 .image-container
 {
      
-     width: 13%;
-    height: 80px;
+     width: 9%;
+   
     
    
 }
@@ -10,7 +10,7 @@
 .image-container img{
   height: 87%;
   width: 90%;
-  line-height: 70%;
+ 
   position: relative;
   top:10px;
   left: 10px;
