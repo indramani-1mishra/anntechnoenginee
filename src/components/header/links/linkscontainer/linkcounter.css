@@ -21,7 +21,7 @@
     
   }
   .ass{
-    width: 35%;
+    width: 40%;
    
   }
 
@@ -49,6 +49,7 @@
       margin: 0;
       position: relative;
       top:20px;
+      border: 2px solid green;
     }
   
     .list {

@@ -1,6 +1,7 @@
 export const menuData = [
   {
-    category: "Dehumidifiers",
+        
+   categorydata:{category: "Dehumidifiers",path:"/Dehumidifires"},
     items : [
   { name: "Portable Dehumidifier", path: "" },
   { name: "Semi Commercial Dehumidifier", path: "" },
@@ -11,7 +12,8 @@ export const menuData = [
 
   },
   {
-    category: "Industrial Dehumidifier",
+    
+     categorydata:{category: "Industrial Dehumidifier",path:"/Industrial_Dehumidifier"},
      items :[
   { name: "Portable Industrial Dehumidifier", path: "" },
   { name: "Industrial Dehumidifier", path: "" },
@@ -25,7 +27,8 @@ export const menuData = [
 
   },
    {
-    category: "Ceiling Mounted Dehumidifier",
+    
+     categorydata:{category: "Ceiling Mounted Dehumidifier",path:"/Ceiling_Mounted_Dehumidifier"},
     items : [
   { name: "Duct & Ceiling Mounted Dehumidifier", path: "" },
   { name: "Wall Mounted Dehumidifier", path: "" },
@@ -36,7 +39,8 @@ export const menuData = [
 
   },
   {
-    category: "Pharcipharmaceutical Dehumidifier",
+    
+      categorydata:{category: "Pharcipharmaceutical Dehumidifier",path:"/pharmaceutical_dehumidifiern"},
     items : [
   { name: "Pharma Dehumidifier", path: "" },
   { name: "Industrial Pharma Dehumidifier", path: "" },
@@ -48,7 +52,8 @@ export const menuData = [
 
   },
   {
-    category: "Desiccant Dehumidifier",
+    
+     categorydata:{category: "Desiccant Dehumidifier",path:"/Desiccant_Dehumidifier"},
     items : [
   { name: "Cold Store Dehumidifier", path: "" },
   { name: "Desiccant Dehumidifier", path: "" },
@@ -59,7 +64,8 @@ export const menuData = [
   },
 
   {
-    category: "Ultrasonic Humidifier",
+    
+         categorydata:{category: "Ultrasonic Humidifier",path:"/Ultrasonic_Humidifier"},
     items : [
   { name: "Ultrasonic Humidifier", path: "" },
   { name: "Industrial Ultrasonic Humidifier", path: "" },

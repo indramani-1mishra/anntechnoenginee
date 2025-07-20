@@ -25,7 +25,7 @@ function   Reuseblelogic({menuData}) {
        {menuData.map((section)=>
         {
             return <div key={section.category} className='container3'>
-                <h4>{section.category}</h4>
+                <Link to={section.categorydata.path}><h4>{section.categorydata.category}</h4></Link>
                 <ul className='ulcs'>
                     {section.items.map((item,index)=>
                     {
