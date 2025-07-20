@@ -8,8 +8,9 @@
 /* Dropdown container */
 .allcontainer {
   position: absolute;
-  top: 100%; /* Below the navbar */
+  top: 70%; /* Below the navbar */
   left: 50%;
+  
   transform: translateX(-50%);
   display: flex;
   flex-wrap: wrap;
