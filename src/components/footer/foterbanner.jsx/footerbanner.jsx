@@ -15,7 +15,7 @@ import Getuserrequirement from '../../reauseblecomponet/getuserrequirement/Getus
 export default function Footerbanner() {
 const {setshowemail,showemail}= useContext(SearchContext);
   const onclickhandler=()=>{
-     const mapurl="https://maps.google.com/?q=28.52578500,77.20798600";
+     const mapurl="https://www.google.com/maps/place/28%C2%B031'41.7%22N+77%C2%B016'53.4%22E/@28.52825,77.2789251,17z/data=!3m1!4b1!4m4!3m3!8m2!3d28.52825!4d77.2815?hl=en&entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D";
      window.open(mapurl,"blank");
   }
  
