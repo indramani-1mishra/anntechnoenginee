@@ -35,7 +35,8 @@ import { IoLogoYoutube } from "react-icons/io5";
  export  const address = [
     "Ashish Kumar Nayak (Owner)",
     "ANN Techno Engineer,",
-    "H. No. 840/2, 0, Chirag Delhi Primary School Near Shiv Mandir",
+    "ANN Techno Engineer
+"B-135/3  OKHLA INDUSTRIAL AREA PHASE - 1, NEW DELHI -110020",
     
     "New Delhi - 110017, Delhi, India"
   ];
