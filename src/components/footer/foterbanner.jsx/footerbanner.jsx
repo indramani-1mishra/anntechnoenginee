@@ -31,9 +31,9 @@ const {setshowemail,showemail}= useContext(SearchContext);
           <p className='iconp'><FaMapMarkerAlt fontSize="27px"/></p>
           <p className='iconsinfo' >Ashish Kumar Nayak (Owner)
           
-           ANN Techno Engineer
-        H. No. 840/2, 0, Chirag Delhi Primary School Near Shiv Mandir
-         New Delhi - 110017, Delhi, India<button onClick={onclickhandler}>Get Directions <FaArrowRight/></button></p></div>
+          ANN Techno Engineer
+B-135/3  OKHLA INDUSTRIAL AREA 
+PHASE - 1, NEW DELHI -110020<button onClick={onclickhandler}>Get Directions <FaArrowRight/></button></p></div>
          <div className='infos' onClick={()=>setshowemail(!showemail)}>
          <p className='iconp'><HiOutlineMail fontSize="27px"/></p>
          <p className='iconsinfo'>Send Email</p></div>
